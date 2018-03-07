@@ -6,12 +6,12 @@
   font-family: 'Gotham-book', 'Roboto', sans-serif;
   background-color: lightgray; }
   #index p {
-    color: #FFFFFF; }
+    color: red; }
 
-#articles {
+#articles, #videos {
   font-family: 'Gotham-book', 'Roboto', sans-serif;
   background-color: lightgray; }
-  #articles p {
+  #articles p, #videos p {
     color: #FFFFFF; }
 
 /*# sourceMappingURL=style.css.map */

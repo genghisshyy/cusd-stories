@@ -11,19 +11,19 @@ $navbar-color : #FFFFFF;
     src: url("../fonts/gotham-book.ttf") format("truetype");
 }
 
-// Everything on index page under here
+// Everything on index page under here, this looks different than articles and videos
 #index {
 
   font-family: 'Gotham-book', 'Roboto', sans-serif;
   background-color: lightgray;
 
   p {
-    color: $navbar-color;
+    color: red;
   }
 }
 
-// Everything on articles page under here
-#articles {
+// Articles and videos look the same in terms of styling, add styling here
+%articles-videos {
 
   font-family: 'Gotham-book', 'Roboto', sans-serif;
   background-color: lightgray;
@@ -31,4 +31,14 @@ $navbar-color : #FFFFFF;
   p {
     color: $navbar-color;
   }
+
+}
+
+
+#articles {
+  @extend %articles-videos;
+  
+}
+#videos {
+  @extend %articles-videos;
 }
