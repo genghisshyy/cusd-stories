@@ -1,4 +1,17 @@
-body {
-  color: red; }
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+@font-face {
+  font-family: Gotham-Book;
+  src: url("../fonts/gotham-book.ttf") format("truetype"); }
+#index {
+  font-family: 'Gotham-book', 'Roboto', sans-serif;
+  background-color: lightgray; }
+  #index p {
+    color: #FFFFFF; }
+
+#articles {
+  font-family: 'Gotham-book', 'Roboto', sans-serif;
+  background-color: lightgray; }
+  #articles p {
+    color: #FFFFFF; }
 
 /*# sourceMappingURL=style.css.map */

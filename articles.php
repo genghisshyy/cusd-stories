@@ -16,7 +16,7 @@
 
     <?php include "includes/navbar.php"; ?>
 
-    
+
     <!-- Main panel display here -->
     <div class="container">
 

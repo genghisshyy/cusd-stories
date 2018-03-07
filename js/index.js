@@ -15,7 +15,7 @@ function showInfo(data, tabletop) {
   console.log ("setup successful!");
   console.log(data);
   data.forEach(function(element) {
-    $(".container").append("<div class='item'>" + element.Timestamp + ", " + element.Title + "");
+    $(".container").append("<div class='item'><p>" + element.Timestamp + ", " + element.Title + "</p> </div>");
   }, this);
   
 }
