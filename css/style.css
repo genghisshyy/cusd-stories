@@ -6,9 +6,43 @@ body {
   height: 66px;
   padding-top: 2px; }
 
+.row {
+  padding-left: 1.0rem;
+  padding-right: 1.0rem; }
+
+.row .col {
+  padding: 2.0rem; }
+
+.card-bg {
+  background-color: white;
+  margin: auto;
+  text-align: left;
+  height: 430px;
+  width: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+
+.card-bg:hover {
+  position: relative;
+  top: -5px; }
+
+.card-img {
+  height: 310px;
+  width: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center; }
+
+.card-body {
+  position: relative;
+  padding: 10px; }
+
+.card-title {
+  font-weight: bold;
+  font-size: large; }
+
 #index {
   font-family: 'Gotham-book', 'Roboto', sans-serif;
-  background-color: lightgray; }
+  background-color: white; }
   #index p {
     color: red; }
 
