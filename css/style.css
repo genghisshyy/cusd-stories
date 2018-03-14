@@ -6,13 +6,6 @@ body {
   height: 66px;
   padding-top: 2px; }
 
-.row {
-  padding-left: 1.0rem;
-  padding-right: 1.0rem; }
-
-.row .col {
-  padding: 2.0rem; }
-
 .card-bg {
   background-color: white;
   margin: auto;
@@ -20,6 +13,24 @@ body {
   height: 430px;
   width: auto;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+
+.row .col .content-tag-div {
+  color: white;
+  padding: 0.0rem; }
+
+.about-tag {
+  text-align: center;
+  width: 50%;
+  padding: 0.5rem;
+  float: left;
+  background: #5ca772; }
+
+.type-tag {
+  text-align: center;
+  width: 50%;
+  padding: 0.5rem;
+  float: right;
+  background: #c9c9c9; }
 
 .card-bg:hover {
   position: relative;
@@ -34,11 +45,21 @@ body {
 
 .card-body {
   position: relative;
-  padding: 10px; }
+  padding: 1.0rem; }
 
 .card-title {
   font-weight: bold;
-  font-size: large; }
+  font-size: medium; }
+
+.card-description {
+  font-size: small; }
+
+.row {
+  padding-left: 1.0rem;
+  padding-right: 1.0rem; }
+
+.row .col {
+  padding: 2.0rem; }
 
 #index {
   font-family: 'Gotham-book', 'Roboto', sans-serif;

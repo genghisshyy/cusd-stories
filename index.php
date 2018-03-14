@@ -25,17 +25,32 @@
     }
 
     $info = get_info("https://medium.com/@cathyliu_55604/how-cusd-has-impacted-you-tony-li-8cf3296fbf5f", $key);
+
+    $info = get_info("https://medium.com/@cathyliu_55604/how-cusd-has-impacted-you-tony-li-8cf3296fbf5f", $key);
     ?>
 
      <div class="row center-align">
 
       <div class="col s12 l4">
           <div class="card-bg">
+            <div class = "col l6 s6 m6 content-tag-div">
+                <div class = "about-tag">
+                  People
+                </div>
+                <div class = "type-tag">
+                  Articles
+                </div>
+            </div>
             <div class= "card-img"
                 style= "background-image: url('https://cdn-images-1.medium.com/max/1200/1*L0zf9ap8xoInVbm78siJBA.png');">
             </div>
             <div class="card-body">
-              Name of Article
+                <div class = "card-title">
+                    Name of Article
+                </div>
+                <div class = "card-description">
+                    Body of Article
+                </div>
             </div>
           </div>
       </div>
@@ -46,7 +61,10 @@
               style= "background-image: url('https://cdn-images-1.medium.com/max/1200/1*L0zf9ap8xoInVbm78siJBA.png');">
           </div>
           <div class="card-body">
-            Name of Article
+            <div class = "card-title">
+                Name of Article
+            </div>
+                Body of Article
           </div>
         </div>
       </div>
@@ -65,15 +83,7 @@
         </div>
       </div>
 
-      <div class="col s12 l4">4</div>
-      <div class="col s12 l4">5</div>
-      <div class="col s12 l4">6</div>
-      <div class="col s12 l4">7</div>
-      <div class="col s12 l4">8</div>
-      <div class="col s12 l4">9</div>
-      <div class="col s12 l4">10</div>
-      <div class="col s12 l4">11</div>
-      <div class="col s12 l4">12</div>
+
     </div>
 
 

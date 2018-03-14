@@ -4,6 +4,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 $navbar-color : #FFFFFF;
+$lightgreen: #5ca772;
+$lightgrey: #c9c9c9;
 
 // setup gotham-book font from truetype file
 @font-face {
@@ -20,15 +22,6 @@ body{
 $card-height: 430px;
 $card-img-height: 310px;
 
-.row {
-  padding-left:1.0rem;
-  padding-right:1.0rem;
-}
-
-.row .col {
-  padding: 2.0rem;
-}
-
 .card-bg {
    background-color: white;
    margin: auto;
@@ -36,6 +29,27 @@ $card-img-height: 310px;
    height: $card-height;
    width: auto;
    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.row .col .content-tag-div{
+  color: white;
+  padding: 0.0rem;
+}
+
+.about-tag{
+  text-align: center;
+  width: 50%;
+  padding: 0.5rem;
+  float: left;
+  background: $lightgreen;
+}
+
+.type-tag{
+  text-align: center;
+  width: 50%;
+  padding: 0.5rem;
+  float: right;
+  background: $lightgrey;
 }
 
 .card-bg:hover {
@@ -54,17 +68,26 @@ $card-img-height: 310px;
 
 .card-body{
   position: relative;
-  padding: 10px;
+  padding: 1.0rem;
 }
 
 .card-title{
   font-weight: bold;
-  font-size: large;
+  font-size: medium;
 
 }
 
 .card-description{
+  font-size: small;
+}
 
+.row {
+  padding-left:1.0rem;
+  padding-right:1.0rem;
+}
+
+.row .col {
+  padding: 2.0rem;
 }
 
 
