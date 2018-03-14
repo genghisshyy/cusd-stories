@@ -1,7 +1,7 @@
 // tabletop reference:   https://github.com/jsoma/tabletop
 // handlebars reference: https://github.com/mardix/Handlebars
 
-var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1jS3t5cf0vfyZ1Ay2SDmwunkIYzoIOrpRudVTqU01h4E/edit?usp=sharing';
+var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Ng5mELTWQJatDN1n5LUdf8UzVsSkqkBR5KbeKtKFcAk/edit?usp=sharing';
 
 function init() {
   Tabletop.init({
