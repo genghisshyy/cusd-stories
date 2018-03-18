@@ -65,7 +65,7 @@ body {
   font-family: 'Gotham-book', 'Roboto', sans-serif;
   background-color: white; }
   #index p {
-    color: red; }
+    color: #90949C; }
 
 #articles, #videos {
   font-family: 'Gotham-book', 'Roboto', sans-serif;
@@ -74,8 +74,6 @@ body {
     color: #FFFFFF; }
 
 /*# sourceMappingURL=style.css.map */
-
-
 
 
 
@@ -89,7 +87,7 @@ a:hover{
 
 
 .cusd-logo{
-  padding-top: 10px;
+  padding-top: -10px;
   width:60px;
   left:10px;
 
@@ -155,7 +153,7 @@ a.footer-link{
 }
 
 
-#nav {
+nav {
     /* box-shadow: 0px 2px 40px 0px rgba(0,0,0,0.08); */
     /* position: fixed;
     background-color: rgba(255,255,255,.98); */
@@ -165,6 +163,7 @@ a.footer-link{
     position: relative;
     top: 0;
     width: 100%;
+    color: white !important;
 }
 
 
@@ -225,4 +224,11 @@ a.footer-link{
    #nav div.item a {
       font-weight: inherit;
       display: block;
+  }
+
+
+
+  nav .brand-logo{
+  padding-left: 65px !important;
+  font-size: 1.3rem !important;
   }
