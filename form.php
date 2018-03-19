@@ -1,6 +1,6 @@
 <?php
 const INPUT_TYPE = ["article", "video"];
-const UPLOAD_PATH = "uploads/";
+const UPLOAD_PATH = "img/uploads/";
 
 if (isset($_POST["submit_button"])){
   $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
@@ -13,18 +13,16 @@ if (isset($_POST["submit_button"])){
   };
 
 
-  // $file = $_FILES["input_photo"]["tmp_name"];
+  $file = $_FILES["input_photo"];
 
-  // $upload_name = basename($file["name"]);
-  // $upload_ext = strtolower(pathinfo($file, PATHINFO_EXTENSION) );
-
-  var_dump($upload_name, $upload_ext);
+  $upload_name = basename($file["name"]);
+  $upload_ext = strtolower(pathinfo($upload_name, PATHINFO_EXTENSION) );
   
   var_dump($title);
   var_dump($tag_line);
   var_dump($url);
   var_dump($input_type);
-  var_dump($file);
+  var_dump($upload_name, $upload_ext);
 }
 
 
@@ -87,11 +85,13 @@ if (isset($_POST["submit_button"])){
             <div class="file-field input-field">
               <div class="btn">
                 <span>Image</span>
-                <input type="file" name="input_photo">
+                <input type="file" name= "input_photo">
               </div>
             </div>
           </div>
 
+
+          
 
           <div class="col s12 center-align">
             <input type="submit" class= "btn" name="submit_button">
