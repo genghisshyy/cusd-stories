@@ -103,7 +103,7 @@ if (isset($_POST["submit_button"])){
 
           <div class="col s12 l6">
             <div class="btn">
-              <input type="file" name= "input_photo" id="input_photo">
+              <input type="file" name= "input_photo" id="input_photo" accept="image/*">
             </div>
           </div>
           <div class="col s12 l6">
