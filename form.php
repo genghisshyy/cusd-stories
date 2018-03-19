@@ -4,6 +4,7 @@
 const INPUT_TYPE = ["article", "video"];
 const VALID_EXTNS = ["jpg", "jpeg", "png"];
 const UPLOAD_PATH = "img/uploads/";
+$upload_submitted = false;
 
 // is valid inputs of form
 $is_valid = true;
@@ -22,7 +23,7 @@ function exec_sql_query($db, $sql, $params = array()) {
 };
 
 if (isset($_POST["submit_button"])){
-  
+
   // grab text inputs
   $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
   $tag_line = filter_input(INPUT_POST, 'tag_line', FILTER_SANITIZE_STRING);
@@ -55,14 +56,15 @@ if (isset($_POST["submit_button"])){
   var_dump($input_type);
   var_dump($upload_name, $upload_ext);
   var_dump($file_path);
-  
+
   // connection string for heroku
   $connection_string= "dbname=d9bvjse2g8ba1h host=ec2-54-243-210-70.compute-1.amazonaws.com port=5432 user=dxwirrhzaydomo password=62adc98f8f11caa8d9a71c385d70edb1483dbb761458189b20f5ba9f6ddfae6e sslmode=require";
 
   // PDO connection using heroku string
   $conn = new PDO ("pgsql:".$connection_string);
-  
+
   // SQL template
+  // TODO: FIX THIS STATEMENT WITH THE NEW TABLE
   $insertion_query = "INSERT INTO posts (title, tag_line, url, input_type, file_path) VALUES (:title, :tag_line, :url, :input_type, :file_path)";
 
   //insert into database
@@ -83,6 +85,7 @@ if (isset($_POST["submit_button"])){
   }
   else{
     echo "Unsuccessful upload, check your inputs";
+
   };
 };
 
@@ -142,14 +145,15 @@ if (isset($_POST["submit_button"])){
             </div>
           </div>
 
-          <div class="col s12 l6">
+          <div class="col s12 l6 center-align">
             <div class="btn">
               <input type="file" name= "input_photo" id="input_photo" accept="image/*">
             </div>
           </div>
-          <div class="col s12 l6">
+          <div class="col s12 l6 center-align">
             <input type="submit" class= "btn" name="submit_button">
           </div>
+
 
 
 
