@@ -1,9 +1,14 @@
 <?php
+
+// declare constants
 const INPUT_TYPE = ["article", "video"];
 const VALID_EXTNS = ["jpg", "jpeg", "png"];
 const UPLOAD_PATH = "img/uploads/";
+
+// is valid inputs of form
 $is_valid = true;
 
+// execute query or fail with PDO exception
 function exec_sql_query($db, $sql, $params = array()) {
   try {
     $query = $db->prepare($sql);
@@ -14,11 +19,11 @@ function exec_sql_query($db, $sql, $params = array()) {
     handle_db_error($exception);
   }
   return NULL;
-}
-
-
+};
 
 if (isset($_POST["submit_button"])){
+  
+  // grab text inputs
   $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
   $tag_line = filter_input(INPUT_POST, 'tag_line', FILTER_SANITIZE_STRING);
   $url = filter_input(INPUT_POST, 'url', FILTER_SANITIZE_URL);
@@ -30,42 +35,39 @@ if (isset($_POST["submit_button"])){
     $is_valid = false;
   }
 
+  // grab file data
   $file = $_FILES["input_photo"];
-
   $upload_name = basename($file["name"]);
   $upload_ext = strtolower(pathinfo($upload_name, PATHINFO_EXTENSION) );
 
+  // assert valid file extension on backend
   if (!in_array($upload_ext, VALID_EXTNS)){
     $is_valid = false;
   };
 
+  // catenate path for backend database
   $file_path = UPLOAD_PATH . $upload_name;
 
+  // check output...
   var_dump($title);
   var_dump($tag_line);
   var_dump($url);
   var_dump($input_type);
   var_dump($upload_name, $upload_ext);
   var_dump($file_path);
-
+  
+  // connection string for heroku
   $connection_string= "dbname=d9bvjse2g8ba1h host=ec2-54-243-210-70.compute-1.amazonaws.com port=5432 user=dxwirrhzaydomo password=62adc98f8f11caa8d9a71c385d70edb1483dbb761458189b20f5ba9f6ddfae6e sslmode=require";
 
+  // PDO connection using heroku string
   $conn = new PDO ("pgsql:".$connection_string);
-  // $conn = pg_connect($connection_string);
-
-
-
-  // $insertion_query = "INSERT INTO posts (title, tag_line, url, input_type, file_path) VALUES ( '". $title ."' ,'".$tag_line."', '".$url."', '".$input_type."', '".$file_path."')";
-
+  
+  // SQL template
   $insertion_query = "INSERT INTO posts (title, tag_line, url, input_type, file_path) VALUES (:title, :tag_line, :url, :input_type, :file_path)";
-
-  // var_dump($insertion_query);
-
 
   //insert into database
   if ($is_valid){
-    // inputs are valid...
-
+    // Here, all inputs are valid
      $params = array(
       ":title" => $title,
       ":tag_line" => $tag_line,
@@ -75,12 +77,13 @@ if (isset($_POST["submit_button"])){
     );
     exec_sql_query($conn, $insertion_query, $params);
 
+    //TODO: MOVE UPLOADED FILE TO 'img/uploads' folder on successful input into database
+
     echo "Successful Upload!";
-  }else{
+  }
+  else{
     echo "Unsuccessful upload, check your inputs";
   };
-
-
 };
 
 
@@ -129,7 +132,7 @@ if (isset($_POST["submit_button"])){
             </div>
 
             <div class="section col s12 l6">
-              <h5>Section 4</h5>
+              <h5>Video or Article</h5>
               <p>
                 <input name="input_type" type="radio" id="article" value="article" />
                 <label for="article">Article</label>
