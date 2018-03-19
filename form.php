@@ -4,12 +4,25 @@ const VALID_EXTNS = ["jpg", "jpeg", "png"];
 const UPLOAD_PATH = "img/uploads/";
 $is_valid = true;
 
+function exec_sql_query($db, $sql, $params = array()) {
+  try {
+    $query = $db->prepare($sql);
+    if ($query and $query->execute($params)) {
+      return $query;
+    }
+  } catch (PDOException $exception) {
+    handle_db_error($exception);
+  }
+  return NULL;
+}
+
+
 
 if (isset($_POST["submit_button"])){
   $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
   $tag_line = filter_input(INPUT_POST, 'tag_line', FILTER_SANITIZE_STRING);
   $url = filter_input(INPUT_POST, 'url', FILTER_SANITIZE_URL);
-  
+
   // only can be 'article' or 'video'
   if (in_array(filter_input(INPUT_POST, 'input_type', FILTER_SANITIZE_STRING), INPUT_TYPE)){
     $input_type = filter_input(INPUT_POST, 'input_type', FILTER_SANITIZE_STRING);
@@ -25,7 +38,7 @@ if (isset($_POST["submit_button"])){
   if (!in_array($upload_ext, VALID_EXTNS)){
     $is_valid = false;
   };
-  
+
   $file_path = UPLOAD_PATH . $upload_name;
 
   var_dump($title);
@@ -36,40 +49,39 @@ if (isset($_POST["submit_button"])){
   var_dump($file_path);
 
   $connection_string= "dbname=d9bvjse2g8ba1h host=ec2-54-243-210-70.compute-1.amazonaws.com port=5432 user=dxwirrhzaydomo password=62adc98f8f11caa8d9a71c385d70edb1483dbb761458189b20f5ba9f6ddfae6e sslmode=require";
-  
-  $db = parse_url($connection_string);
 
-  $pdo = new PDO("pgsql:" . sprintf(
-      "host=%s;port=%s;user=%s;password=%s;dbname=%s",
-      $db["host"],
-      $db["port"],
-      $db["user"],
-      $db["pass"],
-      ltrim($db["path"], "/")
-  ));
-
-  
-  
-  // $conn = new PDO ("pgsql:".$connection_string);
+  $conn = new PDO ("pgsql:".$connection_string);
+  // $conn = pg_connect($connection_string);
 
 
-  
-  $insertion_query = "INSERT INTO posts (title, tag_line, url, input_type, file_path) VALUES ( '". $title ."' ,'".$tag_line."', '".$url."', '".$input_type."', '".$file_path."')";
-  
-  var_dump($insertion_query);
+
+  // $insertion_query = "INSERT INTO posts (title, tag_line, url, input_type, file_path) VALUES ( '". $title ."' ,'".$tag_line."', '".$url."', '".$input_type."', '".$file_path."')";
+
+  $insertion_query = "INSERT INTO posts (title, tag_line, url, input_type, file_path) VALUES (:title, :tag_line, :url, :input_type, :file_path)";
+
+  // var_dump($insertion_query);
 
 
   //insert into database
   if ($is_valid){
     // inputs are valid...
 
+     $params = array(
+      ":title" => $title,
+      ":tag_line" => $tag_line,
+      ":url" => $url,
+      ":input_type" => $input_type,
+      ":file_path" => $file_path
+    );
+    exec_sql_query($conn, $insertion_query, $params);
+
     echo "Successful Upload!";
   }else{
     echo "Unsuccessful upload, check your inputs";
   };
 
-  
-}; 
+
+};
 
 
 
@@ -109,7 +121,7 @@ if (isset($_POST["submit_button"])){
               <h5>Tag Line</h5>
               <input class="col s12" type="text" name="tag_line" data-length="120">
             </div>
-          
+
             <!-- right side -->
             <div class="section col s12 l6">
               <h5>URL</h5>
@@ -135,11 +147,11 @@ if (isset($_POST["submit_button"])){
           <div class="col s12 l6">
             <input type="submit" class= "btn" name="submit_button">
           </div>
-         
-        
-        
-        </form> 
-       </div> <!-- close row --> 
+
+
+
+        </form>
+       </div> <!-- close row -->
     </div> <!--close container -->
 
 
