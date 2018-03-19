@@ -1,6 +1,9 @@
 <?php
 const INPUT_TYPE = ["article", "video"];
+const VALID_EXTNS = ["jpg", "jpeg", "png"];
 const UPLOAD_PATH = "img/uploads/";
+$is_valid = true;
+
 
 if (isset($_POST["submit_button"])){
   $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
@@ -10,13 +13,18 @@ if (isset($_POST["submit_button"])){
   // only can be 'article' or 'video'
   if (in_array(filter_input(INPUT_POST, 'input_type', FILTER_SANITIZE_STRING), INPUT_TYPE)){
     $input_type = filter_input(INPUT_POST, 'input_type', FILTER_SANITIZE_STRING);
-  };
-
+  }else{
+    $is_valid = false;
+  }
 
   $file = $_FILES["input_photo"];
 
   $upload_name = basename($file["name"]);
   $upload_ext = strtolower(pathinfo($upload_name, PATHINFO_EXTENSION) );
+
+  if (!in_array($upload_ext, VALID_EXTNS)){
+    $is_valid = false;
+  };
   
   var_dump($title);
   var_dump($tag_line);
@@ -25,11 +33,17 @@ if (isset($_POST["submit_button"])){
   var_dump($upload_name, $upload_ext);
 
 
-  function input_to_database(){
-    
-    // check if input for everything, then insert...
-  }
-}
+  //insert into database
+  if ($is_valid){
+    // inputs are valid...
+
+    echo "Successful Upload!";
+  }else{
+    echo "Unsuccessful upload, check your inputs";
+  };
+
+  
+}; 
 
 
 

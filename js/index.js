@@ -24,8 +24,8 @@
 
 $("#submission_form").bind("submit", function () {
   var ext = $('#input_photo').val().split('.').pop().toLowerCase();
-  if ($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
-    alert('invalid extension!');
+  if ($.inArray(ext, ['png', 'jpg', 'jpeg']) == -1) {
+    alert('Invalid File Extension!');
   };    
 });
 
