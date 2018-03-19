@@ -23,6 +23,12 @@ if (isset($_POST["submit_button"])){
   var_dump($url);
   var_dump($input_type);
   var_dump($upload_name, $upload_ext);
+
+
+  function input_to_database(){
+    
+    // check if input for everything, then insert...
+  }
 }
 
 
@@ -49,7 +55,7 @@ if (isset($_POST["submit_button"])){
        <div class="row">
         <h2 class="center-align"> Enter a New Story</h2>
 
-        <form method="post" action="form.php" enctype="multipart/form-data">
+        <form method="post" action="form.php" enctype="multipart/form-data" id="submission_form">
 
           <div class="row">
 
@@ -81,19 +87,12 @@ if (isset($_POST["submit_button"])){
             </div>
           </div>
 
-          <div class="col s12">
-            <div class="file-field input-field">
-              <div class="btn">
-                <span>Image</span>
-                <input type="file" name= "input_photo">
-              </div>
+          <div class="col s12 l6">
+            <div class="btn">
+              <input type="file" name= "input_photo" id="input_photo">
             </div>
           </div>
-
-
-          
-
-          <div class="col s12 center-align">
+          <div class="col s12 l6">
             <input type="submit" class= "btn" name="submit_button">
           </div>
          
