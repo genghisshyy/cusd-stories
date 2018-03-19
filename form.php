@@ -56,7 +56,7 @@ if (isset($_POST["submit_button"])){
             <!-- left side -->
             <div class="section col s12 l6">
               <h5>Title</h5>
-              <input class="col s12" type="text" name="title" pattern="^[0-9a-zA-Z \b]+$" title="No Special Characters allowed">
+              <input class="col s12" type="text" name="title">
             </div>
 
             <div class="section col s12 l6">
