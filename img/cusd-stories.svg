@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="215px" height="92px" viewBox="0 0 215 92" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>cusd logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Videos-Page" transform="translate(-50.000000, -50.000000)">
+            <g id="Header" transform="translate(50.000000, 50.000000)">
+                <g id="cusd-logo">
+                    <polygon id="Fill-1" fill="#8EBF75" points="0 42.593 42.592 42.593 42.592 0.001 0 0.001"></polygon>
+                    <polygon id="Fill-2" fill="#56988E" points="0 92 42.592 92 42.592 49.408 0 49.408"></polygon>
+                    <polygon id="Fill-3" fill="#5CA772" points="49.407 92 91.999 92 91.999 49.408 49.407 49.408"></polygon>
+                    <polygon id="Fill-4" fill="#B6D4D0" points="49.407 42.593 91.999 42.593 91.999 0.001 49.407 0.001"></polygon>
+                    <text id="C" font-family="Avenir-Black, Avenir" font-size="23.9757" font-weight="700" fill="#FFFFFF">
+                        <tspan x="12" y="30">C</tspan>
+                    </text>
+                    <text id="S" font-family="Avenir-Black, Avenir" font-size="23.9757" font-weight="700" fill="#FFFFFF">
+                        <tspan x="14" y="79">S</tspan>
+                    </text>
+                    <text id="D" font-family="Avenir-Black, Avenir" font-size="23.9757" font-weight="700" fill="#FFFFFF">
+                        <tspan x="62" y="79">D</tspan>
+                    </text>
+                    <text id="U" font-family="Avenir-Black, Avenir" font-size="23.9757" font-weight="700" fill="#FFFFFF">
+                        <tspan x="62" y="30">U</tspan>
+                    </text>
+                    <text id="Stories" font-family="Avenir-Black, Avenir" font-size="30" font-weight="700" fill="#838383">
+                        <tspan x="117" y="52">Stories</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
