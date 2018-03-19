@@ -27,5 +27,5 @@ $("#submission_form").bind("submit", function () {
   if ($.inArray(ext, ['png', 'jpg', 'jpeg']) == -1) {
     alert('Invalid File Extension!');
   };    
-});
+}); 
 
