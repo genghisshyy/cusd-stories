@@ -26,11 +26,37 @@ if (isset($_POST["submit_button"])){
     $is_valid = false;
   };
   
+  $file_path = UPLOAD_PATH . $upload_name;
+
   var_dump($title);
   var_dump($tag_line);
   var_dump($url);
   var_dump($input_type);
   var_dump($upload_name, $upload_ext);
+  var_dump($file_path);
+
+  $connection_string= "dbname=d9bvjse2g8ba1h host=ec2-54-243-210-70.compute-1.amazonaws.com port=5432 user=dxwirrhzaydomo password=62adc98f8f11caa8d9a71c385d70edb1483dbb761458189b20f5ba9f6ddfae6e sslmode=require";
+  
+  $db = parse_url($connection_string);
+
+  $pdo = new PDO("pgsql:" . sprintf(
+      "host=%s;port=%s;user=%s;password=%s;dbname=%s",
+      $db["host"],
+      $db["port"],
+      $db["user"],
+      $db["pass"],
+      ltrim($db["path"], "/")
+  ));
+
+  
+  
+  // $conn = new PDO ("pgsql:".$connection_string);
+
+
+  
+  $insertion_query = "INSERT INTO posts (title, tag_line, url, input_type, file_path) VALUES ( '". $title ."' ,'".$tag_line."', '".$url."', '".$input_type."', '".$file_path."')";
+  
+  var_dump($insertion_query);
 
 
   //insert into database
