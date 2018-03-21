@@ -34,6 +34,9 @@ body {
 .main {
   margin-top: 2rem; }
 
+nav {
+  background-color: #FFFFFF; }
+
 .about-tag {
   text-align: center;
   width: 50%;
