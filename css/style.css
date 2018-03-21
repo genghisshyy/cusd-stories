@@ -77,12 +77,16 @@ body {
   font-family: 'Gotham-book', 'Roboto', sans-serif;
   background-color: white; }
   #index p {
-    color: red; }
+    color: #90949C; }
 
 #articles, #videos {
   font-family: 'Gotham-book', 'Roboto', sans-serif;
   background-color: lightgray; }
   #articles p, #videos p {
     color: #FFFFFF; }
+
+a.footer-link {
+  padding-left: 60px;
+  color: #6BAA70; }
 
 /*# sourceMappingURL=style.css.map */
