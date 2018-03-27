@@ -37,6 +37,9 @@ body {
 nav {
   background-color: #FFFFFF; }
 
+
+
+
 .about-tag {
   text-align: center;
   width: 50%;
@@ -89,10 +92,93 @@ nav {
     color: #FFFFFF; }
 
 a.footer-link {
-  padding-left: 60px;
-  color: #6BAA70; }
+  padding-left: 100px;
+  color: #6BAA70;
+  }
+
+
+  a.footer-link:hover {
+    color: #9CC5A1;
+    }
+
+  footer{
+      margin-left:200px;
+
+  }
 
 nav ul a {
   color: #90949C; }
 
+
+  p.right{
+    margin-left: -20px;
+  }
+
+
+
+/* ----------sidenav ---------*/
+
+
+
+/* #container {
+  padding-left: 30px;
+  width:200px;
+}
+
+#content {
+  padding: 20px;
+}
+
+@media only screen and (max-width : 992px) {
+  #container {
+    padding-left: 0px;
+  }
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+/* header text */
+.side-nav li{
+  color:#6D6D6D;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+
+}
+
+.side-nav a{
+transition: 0.3s;
+}
+
+
+.side-nav{
+  width:200px !important;
+  margin-top: 100px;
+  position: fixed;
+  box-shadow: none;
+   transition: 0.5s;
+}
+
+
+
+
+
+.side-nav li > a{
+  color:#868686;
+}
+
 /*# sourceMappingURL=style.css.map */
+
+
+.main{
+margin-left: 200px;
+}

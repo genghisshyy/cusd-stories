@@ -4,5 +4,5 @@
 
 
  <p class = "right">
-<span>&copy;&nbsp;2011&ndash;2018 Cornell University Sustainable Design</span></p>
+<span style="margin-right:28px">&copy;&nbsp;2011&ndash;2018 Cornell University Sustainable Design</span></p>
 </footer>

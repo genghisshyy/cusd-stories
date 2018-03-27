@@ -1,0 +1,40 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+@font-face	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^@font-face {$/;"	function	line:2
+body	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^body {$/;"	function	line:5
+.cusd-logo	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^.cusd-logo {$/;"	function	line:9
+.card-bg	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^.card-bg {$/;"	function	line:14
+.card-bg:hover	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^.card-bg:hover {$/;"	function	line:24
+.row .col .content-tag-div	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^.row .col .content-tag-div {$/;"	function	line:30
+.main	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^.main {$/;"	function	line:34
+nav	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^nav {$/;"	function	line:37
+.about-tag	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^.about-tag {$/;"	function	line:43
+.type-tag	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^.type-tag {$/;"	function	line:50
+.card-img	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^.card-img {$/;"	function	line:57
+.card-body	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^.card-body {$/;"	function	line:64
+.card-title	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^.card-title {$/;"	function	line:68
+.card-description	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^.card-description {$/;"	function	line:72
+.row	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^.row {$/;"	function	line:75
+.row .col	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^.row .col {$/;"	function	line:79
+#index	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^#index {$/;"	function	line:82
+#index p	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^  #index p {$/;"	function	line:85
+#articles, #videos	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^#articles, #videos {$/;"	function	line:88
+#articles p, #videos p	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^  #articles p, #videos p {$/;"	function	line:91
+a.footer-link	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^a.footer-link {$/;"	function	line:94
+a.footer-link:hover	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^  a.footer-link:hover {$/;"	function	line:100
+footer	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^  footer{$/;"	function	line:104
+nav ul a	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^nav ul a {$/;"	function	line:109
+p.right	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^  p.right{$/;"	function	line:113
+/* #container	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^\/* #container {$/;"	function	line:123
+#content	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^#content {$/;"	function	line:128
+@media only screen and (max-width : 992px)	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^@media only screen and (max-width : 992px) {$/;"	function	line:132
+#container	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^  #container {$/;"	function	line:133
+.side-nav li	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^.side-nav li{$/;"	function	line:150
+.side-nav a	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^.side-nav a{$/;"	function	line:158
+.side-nav	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^.side-nav{$/;"	function	line:163
+.side-nav li > a	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^.side-nav li > a{$/;"	function	line:175
+.main	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/css/style.css	/^.main{$/;"	function	line:182

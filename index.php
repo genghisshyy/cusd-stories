@@ -15,6 +15,10 @@
     <![endif]-->
     <?php include "includes/navbar.php"; ?>
 
+
+  <?php include "includes/sidenav.php"; ?>
+
+
     <?php
     $key = "5aa6bdf94dfbbc04c97e91c6f493c78a9eb37adf91222";
 
