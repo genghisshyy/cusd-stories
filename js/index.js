@@ -42,3 +42,27 @@ for( item in fileupload ) {
     wrapper[0].innerHTML = this.files[0].name;
   }
 }
+
+function readURL(input) {
+  console.log("readURL running");
+  console.log(input.files);
+  //console.log(target.result);
+  console.log("im runn");
+  if (input.files && input.files[0]) {
+    console.log(input.files[0]);
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      $('#entry_photo').attr('src', e.target.result);
+    }
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$("#entry_file").change(function() {
+  //console.log(#entry_photo);
+  //console.log(#entry_file);
+  console.log("im in here");
+  readURL(this);
+});

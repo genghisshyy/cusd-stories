@@ -156,20 +156,17 @@ function print_story($story) {
           </div>
 
           <!--<div class="row">-->
+          <div class="row">
             <div class="col s12 l6">
-              <div class="file-field input-field">
-                <div class="btn">
-                  <span>File</span>
-                  <input type="file"name= "input_photo" id="input_photo" accept="image/*">
-                </div>
-                <div class="file-path-wrapper">
-                  <input class="file-path validate" type="text">
-                </div>
+              <div class="file-field btn" id="file_">
+                <span>Upload File</span>
+                <input type="file" name= "input_photo" id="input_photo" accept="image/*">
               </div>
-            </div>
-            <div class="col s12 l6" id="submit_btn">
+           </div>
+           <div class="col s12 l6" id="submit_btn">
               <input type="submit" class= "btn" name="submit_button">
-            </div>
+           </div>
+          </div>
           <!--</div>-->
 
 

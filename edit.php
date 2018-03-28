@@ -39,6 +39,7 @@ if (isset($_GET["id"])){
   //get just the name of the file to display
 
 }
+
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -105,22 +106,30 @@ if (isset($_GET["id"])){
           </div>
 
           <!--<div class="row">-->
-
-              <div class="file-field input-field">
-                <div class="btn">
-                  <span>File</span>
-                  <input type="file"name= "input_photo" id="input_photo" accept="image/*">
-                </div>
-                <div class="file-path-wrapper">
-                  <input class="file-path validate" type="text" placeholder="<?php echo $entry_filepath;?>>
-                </div>
-              </div>
-
-            <div class="col s12 l6" id="submit_btn">
-              <input type="submit" class= "btn" name="submit_button">
-            </div>
+          <div class="row">
           <div class="col s12 l6">
-            <span>Delete Entry</span>
-            <input type="submit" class= "btn" name="delete_button">
+            <div class="file-field btn">
+              <span>Upload New File</span>
+                <input type="file" name= "input_photo" id="entry_file" accept="image/*" onchange="readURL(this)">
+            </div>
           </div>
-      
+          <div class="col s12 l6">
+            <?php echo "<img src =\"". $entry_filepath . "\" id='entry_photo'>";?>
+          </div>
+        </div>
+          <div class ="row">
+            <div class="col s12 l6">
+                <input type="submit" class= "btn" name="delete_button" value = "Delete" id= "del_button">
+            </div>
+            <div class="col s12 l6" id="submit_btn">
+                <input type="submit" class= "btn" name="update_button" value= "Update">
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+        <?php include "includes/footer.php"; ?>
+
+
+        <?php include "includes/js-scripts.php"; ?>

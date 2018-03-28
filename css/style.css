@@ -78,6 +78,12 @@ body {
   #index p {
     color: red; }
 
+#del_button {
+  background-color: #ef5350; }
+
+#entry_photo {
+  width: 380px; }
+
 #articles, #videos {
   font-family: 'Gotham-book', 'Roboto', sans-serif;
   background-color: lightgray; }

@@ -105,6 +105,10 @@ nav{
 #btn-submit{
   padding-top: 30px !important;
 }
+
+#input_photo{
+  //background-color: transparent;
+}
 // Everything on index page under here, this looks different than articles and videos
 #index {
 
@@ -114,6 +118,13 @@ nav{
   p {
     color: red;
   }
+}
+
+#del_button{
+  background-color: #ef5350;
+}
+#entry_photo{
+  width:380px;
 }
 
 // Articles and videos look the same in terms of styling, add styling here
