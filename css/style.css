@@ -182,9 +182,18 @@ transition: 0.3s;
 
 /* ------js filter search -------*/
 
-.main{
+/* problem here */
+/* .main{
 margin-left: 200px;
-}
+} */
+
+
+
+    @media only screen and (min-width: 1200px) and (max-width: 1600px) {
+      .main {
+        margin-left: 200px !important; } }
+
+
 
 
 .filterDiv {
