@@ -22,7 +22,7 @@ function exec_sql_query($db, $sql, $params = array()) {
 };
 
 if (isset($_POST["submit_button"])){
-  
+
   // grab text inputs
   $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
   $tag_line = filter_input(INPUT_POST, 'tag_line', FILTER_SANITIZE_STRING);
@@ -55,13 +55,13 @@ if (isset($_POST["submit_button"])){
   var_dump($input_type);
   var_dump($upload_name, $upload_ext);
   var_dump($file_path);
-  
+
   // connection string for heroku
   $connection_string= "dbname=d9bvjse2g8ba1h host=ec2-54-243-210-70.compute-1.amazonaws.com port=5432 user=dxwirrhzaydomo password=62adc98f8f11caa8d9a71c385d70edb1483dbb761458189b20f5ba9f6ddfae6e sslmode=require";
 
   // PDO connection using heroku string
   $conn = new PDO ("pgsql:".$connection_string);
-  
+
   // SQL template
   $insertion_query = "INSERT INTO posts (title, tag_line, url, input_type, file_path) VALUES (:title, :tag_line, :url, :input_type, :file_path)";
 
@@ -85,8 +85,18 @@ if (isset($_POST["submit_button"])){
     echo "Unsuccessful upload, check your inputs";
   };
 };
-
-
+function print_story($story) {
+  ?>
+  <tr>
+    <td><?php echo htmlspecialchars($story["title"]);?></td>
+    <td>
+      <?php echo htmlspecialchars($story["tag"]);?>
+    </td>
+    <td><?php echo htmlspecialchars($story["url"]);?></td>
+    <td><?php echo "<img src =\"". ($story["file_path"]). "\">";?></td>
+  </tr>
+  <?php
+}
 
 ?>
 <!DOCTYPE html>
@@ -155,6 +165,44 @@ if (isset($_POST["submit_button"])){
 
         </form>
        </div> <!-- close row -->
+       <div class="row">
+         <h2 class="center-align"> Edit an Existing Story</h2>
+         <
+         <?php
+            $connection_string= "dbname=d9bvjse2g8ba1h host=ec2-54-243-210-70.compute-1.amazonaws.com port=5432 user=dxwirrhzaydomo password=62adc98f8f11caa8d9a71c385d70edb1483dbb761458189b20f5ba9f6ddfae6e sslmode=require";
+
+            // PDO connection using heroku string
+            $conn = new PDO ("pgsql:".$connection_string);
+
+            $select_all = "SELECT * From posts";
+            $params = array(
+            );
+            $stories = exec_sql_query($conn, $select_all, $params)->fetchAll();;
+            if (isset($stories) and !empty($stories)) {
+        ?>
+            <table>
+              <tr>
+                <th>Title</th>
+                <th>Tag</th>
+                <th>URL</th>
+                <th>Image</th>
+              </tr>
+              <?php
+
+                foreach($stories as $story) {
+                  print_story($story);
+                }
+              ?>
+              </table>
+              <?php
+            } else {
+              echo "<p>No stories.</p>";
+            }
+            ?>
+
+
+      </div>
+
     </div> <!--close container -->
 
 
