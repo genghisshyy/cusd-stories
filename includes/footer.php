@@ -1,6 +1,6 @@
 <footer>
 
-<p class = "left"><a class = "footer-link" href ="https://www.facebook.com/CUSustainableDesign/">Facebook</a> <a class = "footer-link" href ="https://www.cusd.cornell.edu">Website</a> <a class = "footer-link" href ="https://www.instagram.com">Instagram</a> </p>
+<p class = "float-left"><a class = "footer-link" href ="https://www.facebook.com/CUSustainableDesign/">Facebook</a> <a class = "footer-link" href ="https://www.cusd.cornell.edu">Website</a> <a class = "footer-link" href ="https://www.instagram.com">Instagram</a> </p>
 
 
  <p class = "right">
