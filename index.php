@@ -37,9 +37,8 @@
      <div class="row center-align main">
 
       <div class="col s12 l4 filterDiv people">
-
+    <!-- put the tag here for filter search ^ -->
           <div class="card-bg ">
-            <!-- put the tag here for filter search ^ -->
             <div class = "col l6 s6 m6 content-tag-div">
                 <div class = "about-tag">
                   People
@@ -91,9 +90,6 @@
         </div>
       </div>
     </div>
-
-
-
 
 
 

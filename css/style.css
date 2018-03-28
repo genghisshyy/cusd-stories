@@ -209,6 +209,6 @@ margin-left: 200px;
 }
 
 
-.show {
-  display: block;
+.side-nav a:focus {
+    background-color: #EFEFEF;
 }

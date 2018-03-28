@@ -32,8 +32,6 @@ $("#submission_form").bind("submit", function () {
 
 
 
-
-
 function getData(c) {
   var x, i;
   x = document.getElementsByClassName("filterDiv");
@@ -66,12 +64,19 @@ function RemoveClass(element, name) {
 }
 
 // Add active class to the current button (highlight it)
-var btnContainer = document.getElementById("container");
-var btns = btnContainer.getElementsByClassName("butn");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function(){
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
-  });
-}
+//
+// $('.butn').click(function() {
+//     $(this).toggleClass('active');
+// });
+//
+//
+// var btnContainer = document.getElementById("container");
+// var btns = btnContainer.getElementsByClassName("butn");
+//
+// for (var i = 0; i < btns.length; i++) {
+//   btns[i].addEventListener("click", function() {
+//     var current = document.getElementsByClassName("active");
+//     current[0].className = current[0].className.replace(" active", "");
+//     this.className += " active";
+//   });
+// }
