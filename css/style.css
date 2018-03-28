@@ -37,9 +37,6 @@ body {
 nav {
   background-color: #FFFFFF; }
 
-
-
-
 .about-tag {
   text-align: center;
   width: 50%;
@@ -91,157 +88,82 @@ nav {
   #articles p, #videos p {
     color: #FFFFFF; }
 
-
-
 a.footer-link {
-  /* padding-left: 100px; */
-  color: #6BAA70;
-    padding-left: 10px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-
-
-  @media only screen and (min-width: 1200px) and (max-width: 1600px) {
-    a.footer-link {
-      padding-left: 100px;
-    }
- }
-
-
-
-  @media only screen and (min-width: 1200px) and (max-width: 1600px) {
-    .float-left{
-      float:left;
-    }
- }
-
-  a.footer-link:hover {
-    color: #9CC5A1;
-    }
-
-
-
-    @media only screen and (min-width: 1200px) and (max-width: 1600px) {
-      footer{
-          margin-left:200px;
-
-      }
-  }
+  padding-left: 20px;
+  color: #6BAA70; }
 
 nav ul a {
   color: #90949C; }
 
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+  a.footer-link {
+    padding-left: 100px; } }
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+  .float-left {
+    float: left; } }
+a.footer-link:hover {
+  color: #9CC5A1; }
 
-  p.right{
-    margin-left: -20px;
-  }
+p.right {
+  text-align: center; }
 
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+  footer {
+    margin-left: 200px; } }
+p.float-left {
+  text-align: center;
+  left: 200px; }
 
+nav ul a {
+  color: #90949C; }
 
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+  .float-right {
+    float: right; } }
+p.float-right {
+  text-align: center;
+  margin-left: -20px; }
+
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+  p.float-right {
+    margin-left: -20px; } }
 /* ----------sidenav ---------*/
-
-
-
-/* #container {
-  padding-left: 30px;
-  width:200px;
-}
-
-#content {
-  padding: 20px;
-}
-
-@media only screen and (max-width : 992px) {
-  #container {
-    padding-left: 0px;
-  }
-} */
-
-
-
-
-
-
-
-
-
-
-
-
 /* header text */
-.side-nav li{
-  color:#6D6D6D;
+.side-nav li {
+  color: #6D6D6D;
   text-align: center;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: bold; }
 
-}
+.side-nav a {
+  transition: 0.3s; }
 
-.side-nav a{
-transition: 0.3s;
-}
-
-
-.side-nav{
-  width:200px !important;
+.side-nav {
+  width: 200px !important;
   margin-top: 100px;
   position: fixed;
   box-shadow: none;
-   transition: 0.5s;
-}
+  transition: 0.5s; }
 
-
-
-
-
-.side-nav li > a{
-  color:#868686;
-}
+.side-nav li > a {
+  color: #868686; }
 
 /*# sourceMappingURL=style.css.map */
-
-
-
 /* ------js filter search -------*/
-
-/* problem here */
-/* .main{
-margin-left: 200px;
-} */
-
-
-
-    @media only screen and (min-width: 1200px) and (max-width: 1600px) {
-      .main {
-        margin-left: 200px !important; } }
-
-
-
-
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+  .main {
+    margin-left: 200px !important; } }
 .filterDiv {
-  /* float: left; */
-  /*
-  background-color: #2196F3;
-  color: #ffffff;
-  width: 100px;
-  line-height: 100px;
-  text-align: center;
-  margin: 2px; */
-  display: none;
-}
+  display: none; }
 
 .show {
-  display: block;
-}
+  display: block; }
 
 .container {
   margin-top: 20px;
-  overflow: hidden;
-}
-
+  overflow: hidden; }
 
 .side-nav a:focus {
-    background-color: #EFEFEF;
-}
+  background-color: #EFEFEF; }
+
+/*# sourceMappingURL=style.css.map */
