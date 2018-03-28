@@ -16,7 +16,7 @@
     <?php include "includes/navbar.php"; ?>
 
 
-  <?php include "includes/sidenav.php"; ?>
+    <?php include "includes/sidenav.php"; ?>
 
 
     <?php
@@ -35,6 +35,8 @@
     ?>
 
      <div class="row center-align main">
+
+     <?php include "includes/database.php"; ?>
 
       <div class="col s12 l4 filterDiv people">
     <!-- put the tag here for filter search ^ -->
