@@ -90,10 +90,13 @@ function print_story($story) {
   <tr>
     <td><?php echo htmlspecialchars($story["title"]);?></td>
     <td>
-      <?php echo htmlspecialchars($story["tag"]);?>
+      <?php echo htmlspecialchars($story["tag_line"]);?>
     </td>
     <td><?php echo htmlspecialchars($story["url"]);?></td>
     <td><?php echo "<img src =\"". ($story["file_path"]). "\">";?></td>
+    <td><?php echo htmlspecialchars($story["tag_1"]);?></td>
+    <td><?php echo htmlspecialchars($story["tag_2"]);?></td>
+    <td><?php echo "<a href=\"". "/edit.php?id=". $story["id"] . "\"> <button class='btn' type='submit' action='edit.php'> Edit </button></a>";?></td>
   </tr>
   <?php
 }
@@ -152,50 +155,59 @@ function print_story($story) {
             </div>
           </div>
 
-          <div class="col s12 l6">
-            <div class="btn">
-              <input type="file" name= "input_photo" id="input_photo" accept="image/*">
+          <!--<div class="row">-->
+            <div class="col s12 l6">
+              <div class="file-field input-field">
+                <div class="btn">
+                  <span>File</span>
+                  <input type="file"name= "input_photo" id="input_photo" accept="image/*">
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text">
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col s12 l6">
-            <input type="submit" class= "btn" name="submit_button">
-          </div>
-
+            <div class="col s12 l6" id="submit_btn">
+              <input type="submit" class= "btn" name="submit_button">
+            </div>
+          <!--</div>-->
 
 
         </form>
        </div> <!-- close row -->
        <div class="row">
          <h2 class="center-align"> Edit an Existing Story</h2>
-         <
          <?php
             $connection_string= "dbname=d9bvjse2g8ba1h host=ec2-54-243-210-70.compute-1.amazonaws.com port=5432 user=dxwirrhzaydomo password=62adc98f8f11caa8d9a71c385d70edb1483dbb761458189b20f5ba9f6ddfae6e sslmode=require";
 
             // PDO connection using heroku string
             $conn = new PDO ("pgsql:".$connection_string);
 
-            $select_all = "SELECT * From posts";
+            $select_all = "SELECT * From posts2";
             $params = array(
             );
             $stories = exec_sql_query($conn, $select_all, $params)->fetchAll();;
             if (isset($stories) and !empty($stories)) {
         ?>
             <table>
-              <tr>
+              <thead>
                 <th>Title</th>
-                <th>Tag</th>
+                <th>Tagline</th>
                 <th>URL</th>
                 <th>Image</th>
-              </tr>
+                <th>Tag 1</th>
+                <th>Tag 2</th>
+              </thead>
+              <tbody>
               <?php
-
                 foreach($stories as $story) {
                   print_story($story);
                 }
               ?>
+            </tbody>
               </table>
               <?php
-            } else {
+            }else{
               echo "<p>No stories.</p>";
             }
             ?>

@@ -17,7 +17,7 @@
 //   data.forEach(function(element) {
 //     $(".container").append("<div class='item'><p>" + element.Timestamp + ", " + element.Title + "</p> </div>");
 //   }, this);
-  
+
 // }
 
 // window.addEventListener('DOMContentLoaded', init)
@@ -26,6 +26,19 @@ $("#submission_form").bind("submit", function () {
   var ext = $('#input_photo').val().split('.').pop().toLowerCase();
   if ($.inArray(ext, ['png', 'jpg', 'jpeg']) == -1) {
     alert('Invalid File Extension!');
-  };    
+  };
 });
 
+//code inspired by stackoverflow
+// Span
+var wrapper = document.getElementsByClassName('file-path-wrapper');
+// Button
+var fileupload = document.getElementsByName('input_photo');
+// On change
+for( item in fileupload ) {
+  // Detect changes
+  fileupload[item].onchange = function() {
+    // Echo filename in span
+    wrapper[0].innerHTML = this.files[0].name;
+  }
+}

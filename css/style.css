@@ -69,11 +69,14 @@ body {
 .row .col {
   padding: 2.0rem; }
 
+#btn-submit {
+  padding-top: 30px !important; }
+
 #index {
   font-family: 'Gotham-book', 'Roboto', sans-serif;
   background-color: white; }
   #index p {
-    color: #90949C; }
+    color: red; }
 
 #articles, #videos {
   font-family: 'Gotham-book', 'Roboto', sans-serif;
@@ -82,9 +85,3 @@ body {
     color: #FFFFFF; }
 
 /*# sourceMappingURL=style.css.map */
-
-
-a.footer-link{
-  padding-left: 60px;
-    color:#6BAA70;
-}
