@@ -1,0 +1,16 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+init	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/js/index.js	/^\/\/ function init() {$/;"	function	line:6
+showInfo	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/js/index.js	/^\/\/ function showInfo(data, tabletop) {$/;"	function	line:14
+getData	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/js/index.js	/^function getData(c) {$/;"	function	line:37
+getData	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/js/index.js	/^function getData(c) {$/;"	function	line:37
+AddClass	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/js/index.js	/^function AddClass(element, name) {$/;"	function	line:47
+AddClass	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/js/index.js	/^function AddClass(element, name) {$/;"	function	line:47
+RemoveClass	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/js/index.js	/^function RemoveClass(element, name) {$/;"	function	line:56
+RemoveClass	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/js/index.js	/^function RemoveClass(element, name) {$/;"	function	line:56
+btnContainer	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/js/index.js	/^var btnContainer = document.getElementById("container");$/;"	variable	line:69
+btns	/Users/jintanacunningham/Desktop/cusd.2.0/cusd-stories/js/index.js	/^var btns = btnContainer.getElementsByClassName("butn");$/;"	variable	line:70

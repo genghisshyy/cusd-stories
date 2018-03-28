@@ -44,10 +44,10 @@ for( item in fileupload ) {
 }
 
 function readURL(input) {
-  console.log("readURL running");
-  console.log(input.files);
+  //console.log("readURL running");
+  //console.log(input.files);
   //console.log(target.result);
-  console.log("im runn");
+  //console.log("im runn");
   if (input.files && input.files[0]) {
     console.log(input.files[0]);
     var reader = new FileReader();

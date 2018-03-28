@@ -17,7 +17,15 @@ body {
   text-align: left;
   height: 430px;
   width: auto;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+  box-shadow: 0 4px 20px 6px rgba(0, 0, 0, 0.1), 0 10px 25px 0 rgba(0, 0, 0, 0.1);
+  -webkit-transition: box-shadow 0.2s ease-in, -webkit-transform 0.2s ease-in;
+  transition: box-shadow 0.2s ease-in, transform 0.2s ease-in; }
+
+.card-bg:hover {
+  position: relative;
+  box-shadow: 0 30px 20px 6px rgba(0, 0, 0, 0.1), 0 10px 25px 0 rgba(0, 0, 0, 0.1);
+  -webkit-transform: translateY(-15px);
+  transform: translateY(-15px); }
 
 .row .col .content-tag-div {
   color: white;
@@ -25,6 +33,12 @@ body {
 
 .main {
   margin-top: 2rem; }
+
+nav {
+  background-color: #FFFFFF; }
+
+
+
 
 .about-tag {
   text-align: center;
@@ -39,10 +53,6 @@ body {
   padding: 0.5rem;
   float: right;
   background: #c9c9c9; }
-
-.card-bg:hover {
-  position: relative;
-  top: -5px; }
 
 .card-img {
   height: 310px;
@@ -90,4 +100,157 @@ body {
   #articles p, #videos p {
     color: #FFFFFF; }
 
+
+
+a.footer-link {
+  /* padding-left: 100px; */
+  color: #6BAA70;
+    padding-left: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+
+  @media only screen and (min-width: 1200px) and (max-width: 1600px) {
+    a.footer-link {
+      padding-left: 100px;
+    }
+ }
+
+
+
+  @media only screen and (min-width: 1200px) and (max-width: 1600px) {
+    .float-left{
+      float:left;
+    }
+ }
+
+  a.footer-link:hover {
+    color: #9CC5A1;
+    }
+
+
+
+    @media only screen and (min-width: 1200px) and (max-width: 1600px) {
+      footer{
+          margin-left:200px;
+
+      }
+  }
+
+nav ul a {
+  color: #90949C; }
+
+
+  p.right{
+    margin-left: -20px;
+  }
+
+
+
+/* ----------sidenav ---------*/
+
+
+
+/* #container {
+  padding-left: 30px;
+  width:200px;
+}
+
+#content {
+  padding: 20px;
+}
+
+@media only screen and (max-width : 992px) {
+  #container {
+    padding-left: 0px;
+  }
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+/* header text */
+.side-nav li{
+  color:#6D6D6D;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+
+}
+
+.side-nav a{
+transition: 0.3s;
+}
+
+
+.side-nav{
+  width:200px !important;
+  margin-top: 100px;
+  position: fixed;
+  box-shadow: none;
+   transition: 0.5s;
+}
+
+
+
+
+
+.side-nav li > a{
+  color:#868686;
+}
+
 /*# sourceMappingURL=style.css.map */
+
+
+
+/* ------js filter search -------*/
+
+/* problem here */
+/* .main{
+margin-left: 200px;
+} */
+
+
+
+    @media only screen and (min-width: 1200px) and (max-width: 1600px) {
+      .main {
+        margin-left: 200px !important; } }
+
+
+
+
+.filterDiv {
+  /* float: left; */
+  /*
+  background-color: #2196F3;
+  color: #ffffff;
+  width: 100px;
+  line-height: 100px;
+  text-align: center;
+  margin: 2px; */
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.container {
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+
+.side-nav a:focus {
+    background-color: #EFEFEF;
+}

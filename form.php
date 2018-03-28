@@ -4,6 +4,8 @@
 const INPUT_TYPE = ["article", "video"];
 const VALID_EXTNS = ["jpg", "jpeg", "png"];
 const UPLOAD_PATH = "img/uploads/";
+$GLOBALS['messages'] = array();
+$upload_submitted = false;
 
 // is valid inputs of form
 $is_valid = true;
@@ -11,6 +13,7 @@ $is_valid = true;
 // execute query or fail with PDO exception
 function exec_sql_query($db, $sql, $params = array()) {
   try {
+    var_dump($db);
     $query = $db->prepare($sql);
     if ($query and $query->execute($params)) {
       return $query;
@@ -21,17 +24,52 @@ function exec_sql_query($db, $sql, $params = array()) {
   return NULL;
 };
 
+// Record a message to display to the user.
+function record_message($message) {
+  global $messages;
+  array_push($messages, $message);
+};
+
+// Print messages to user.
+function print_messages() {
+  global $messages;
+  foreach ($messages as $message) {
+    echo htmlspecialchars($message);
+  }
+};
+
 if (isset($_POST["submit_button"])){
 
   // grab text inputs
   $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
   $tag_line = filter_input(INPUT_POST, 'tag_line', FILTER_SANITIZE_STRING);
   $url = filter_input(INPUT_POST, 'url', FILTER_SANITIZE_URL);
+  $tag_1 = filter_input(INPUT_POST, 'tag_1', FILTER_SANITIZE_STRING);
+  $tag_2 = filter_input(INPUT_POST, 'tag_2', FILTER_SANITIZE_STRING);
+
+  // check if tags are the distinct and not null
+  if (!($tag_1 == $tag_2)) {
+    if ($tag_1 && $tag_2) {
+      $field_str = "tag_1, tag_2";
+      $param_str = ":tag_1, :tag_2";
+    } else if ($tag_1) {
+      $field_str = "tag_1";
+      $param_str = ":tag_1";
+    } else if ($tag_2) {
+      $field_str = "tag_2";
+      $param_str = ":tag_2";
+    } else {
+      $is_valid = false;
+    }
+  } else {
+    $is_valid = false;
+    record_message("Tag can only be selected once. ");
+  }
 
   // only can be 'article' or 'video'
   if (in_array(filter_input(INPUT_POST, 'input_type', FILTER_SANITIZE_STRING), INPUT_TYPE)){
     $input_type = filter_input(INPUT_POST, 'input_type', FILTER_SANITIZE_STRING);
-  }else{
+  } else {
     $is_valid = false;
   }
 
@@ -51,6 +89,8 @@ if (isset($_POST["submit_button"])){
   // check output...
   var_dump($title);
   var_dump($tag_line);
+  var_dump($tag_1);
+  var_dump($tag_2);
   var_dump($url);
   var_dump($input_type);
   var_dump($upload_name, $upload_ext);
@@ -62,29 +102,49 @@ if (isset($_POST["submit_button"])){
   // PDO connection using heroku string
   $conn = new PDO ("pgsql:".$connection_string);
 
-  // SQL template
-  $insertion_query = "INSERT INTO posts (title, tag_line, url, input_type, file_path) VALUES (:title, :tag_line, :url, :input_type, :file_path)";
+ if ($is_valid) {
+  $insertion_query = "INSERT INTO posts2 (title, tag_line, url, input_type, file_path, $field_str) VALUES (:title, :tag_line, :url, :input_type, :file_path, $param_str)";
+  $params = array(
+   ":title" => $title,
+   ":tag_line" => $tag_line,
+   ":url" => $url,
+   ":input_type" => $input_type,
+   ":file_path" => $file_path,
+ );
 
-  //insert into database
-  if ($is_valid){
-    // Here, all inputs are valid
-     $params = array(
-      ":title" => $title,
-      ":tag_line" => $tag_line,
-      ":url" => $url,
-      ":input_type" => $input_type,
-      ":file_path" => $file_path
-    );
-    exec_sql_query($conn, $insertion_query, $params);
+if ($field_str == "tag_1, tag_2") {
+  $params["tag_1"] = $tag_1;
+  $params["tag_2"] = $tag_2;
+} else if ($field_str == "tag_1") {
+   $params["tag_1"] = $tag_1;
+ } else if ($field_str == "tag_2") {
+   $params["tag_2"] = $tag_2;
+ } else {
+    record_message("Tag values are invalid, check inputs. ");
+ }
 
+ if ($file['error']==0) {
+   $ext_str = pathinfo($file['name'], PATHINFO_EXTENSION);
+   $ext = filter_var(strtolower($ext_str), FILTER_SANITIZE_STRING);
+if (exec_sql_query($conn, $insertion_query, $params)) {
+  $insertID = 0;
+  exec_sql_query($conn, $insertion_query, $params);
+  move_uploaded_file($file["tmp_name"], "img/uploads/" . (string) $insertID . "." . $ext);
+  $insertID += 1;
+} else {
+  record_message("Execution of query failed, check inputs.");
+}
+
+  record_message("Successful Upload!");
+} else {
+  record_message("Unsuccessful upload, check your inputs.");
+}
+} else {
+  record_message("Unsuccessful upload, check your inputs.");
+}
     //TODO: MOVE UPLOADED FILE TO 'img/uploads' folder on successful input into database
 
-    echo "Successful Upload!";
-  }
-  else{
-    echo "Unsuccessful upload, check your inputs";
   };
-};
 function print_story($story) {
   ?>
   <tr>
@@ -138,12 +198,6 @@ function print_story($story) {
               <input class="col s12" type="text" name="tag_line" data-length="120">
             </div>
 
-            <!-- right side -->
-            <div class="section col s12 l6">
-              <h5>URL</h5>
-              <input class="col s12" type="text" name="url" pattern="https?://.+" title="https or http URLs only">
-            </div>
-
             <div class="section col s12 l6">
               <h5>Video or Article</h5>
               <p>
@@ -153,22 +207,46 @@ function print_story($story) {
                 <label for="video">Video</label>
               </p>
             </div>
+
+            <!-- right side -->
+            <div class="section col s12 l6">
+              <h5>URL</h5>
+              <input class="col s12" type="text" name="url" pattern="https?://.+" title="https or http URLs only">
+            </div>
+
+            <div class="section col s12 l6">
+              <h5>Tag #1</h5>
+              <p><select name="tag_1" form="submission_form">
+                <option value=NULL selected disabled>Select a Tag</option>
+                <?php
+                $tag_opts = array("people", "education", "impact", "lifestyle", "events");
+                foreach ($tag_opts as $tag) {
+                  echo "<option value=$tag>".ucfirst($tag)."</option>";
+                }
+                ?></select></p>
+            </div>
+              <div class="section col s12 l6">
+                <h5>Tag #2</h5>
+                <p><select name="tag_2" form="submission_form">
+                  <option value=NULL selected>Select a Tag</option>
+                  <?php
+                  $tag_opts = array("people", "education", "impact", "lifestyle", "events");
+                  foreach ($tag_opts as $tag) {
+                    echo "<option value=$tag>".ucfirst($tag)."</option>";
+                  }
+                  ?></select></p>
+            </div>
+
+          <div class="col s12 l6 center-align">
+            <div class="btn">
+              <input type="file" name= "input_photo" id="input_photo" accept="image/*">
+            </div>
           </div>
 
-          <!--<div class="row">-->
-          <div class="row">
-            <div class="col s12 l6">
-              <div class="file-field btn" id="file_">
-                <span>Upload File</span>
-                <input type="file" name= "input_photo" id="input_photo" accept="image/*">
-              </div>
-           </div>
-           <div class="col s12 l6" id="submit_btn">
-              <input type="submit" class= "btn" name="submit_button">
-           </div>
+          <div class="col s12 l6 center-align">
+            <input type="submit" class= "btn" name="submit_button">
           </div>
-          <!--</div>-->
-
+<?php print_messages(); ?>
 
         </form>
        </div> <!-- close row -->
@@ -213,7 +291,6 @@ function print_story($story) {
       </div>
 
     </div> <!--close container -->
-
 
     <?php include "includes/footer.php"; ?>
 

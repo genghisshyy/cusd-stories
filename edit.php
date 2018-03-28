@@ -32,13 +32,77 @@ if (isset($_GET["id"])){
   $entry_url = $entry[0]["url"];
   $entry_input = $entry[0]["input_type"];
   $entry_title = $entry[0]["title"];
-  $entry_filepath = $entry[0]["file_path"];
+  $entry_filepath = $entry[0]["file_path"];``
   $entry_tag_1 = $entry[0]["tag_1"];
   $entry_tag_2 = $entry[0]["tag_2"];
 
   //get just the name of the file to display
 
 }
+
+if (isset($_POST["delete_button"])){
+
+  // grab text inputs
+  $new_title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
+  $new_tag_line = filter_input(INPUT_POST, 'tag_line', FILTER_SANITIZE_STRING);
+  $new_url = filter_input(INPUT_POST, 'url', FILTER_SANITIZE_URL);
+
+  // only can be 'article' or 'video'
+  if (in_array(filter_input(INPUT_POST, 'input_type', FILTER_SANITIZE_STRING), INPUT_TYPE)){
+    $input_type = filter_input(INPUT_POST, 'input_type', FILTER_SANITIZE_STRING);
+  }else{
+    $is_valid = false;
+  }
+  // if move_uploaded_file()
+  // grab file data
+  $file = $_FILES["input_photo"];
+  $upload_name = basename($file["name"]);
+  $upload_ext = strtolower(pathinfo($upload_name, PATHINFO_EXTENSION) );
+
+  // assert valid file extension on backend
+  if (!in_array($upload_ext, VALID_EXTNS)){
+    $is_valid = false;
+  };
+
+  // catenate path for backend database
+  $file_path = UPLOAD_PATH . $upload_name;
+
+  // check output...
+  var_dump($title);
+  var_dump($tag_line);
+  var_dump($url);
+  var_dump($input_type);
+  var_dump($upload_name, $upload_ext);
+  var_dump($file_path);
+
+  // connection string for heroku
+  $connection_string= "dbname=d9bvjse2g8ba1h host=ec2-54-243-210-70.compute-1.amazonaws.com port=5432 user=dxwirrhzaydomo password=62adc98f8f11caa8d9a71c385d70edb1483dbb761458189b20f5ba9f6ddfae6e sslmode=require";
+
+  // PDO connection using heroku string
+  $conn = new PDO ("pgsql:".$connection_string);
+
+  // SQL template
+  //$update =
+  //insert into database
+  if ($is_valid){
+    // Here, all inputs are valid
+     $params = array(
+      ":title" => $title,
+      ":tag_line" => $tag_line,
+      ":url" => $url,
+      ":input_type" => $input_type,
+      ":file_path" => $file_path
+    );
+    exec_sql_query($conn, $insertion_query, $params);
+
+    //TODO: MOVE UPLOADED FILE TO 'img/uploads' folder on successful input into database
+
+    echo "Successful Upload!";
+  }
+  else{
+    echo "Unsuccessful upload, check your inputs";
+  };
+};
 
 ?>
 <!DOCTYPE html>
@@ -62,7 +126,7 @@ if (isset($_GET["id"])){
        <div class="row">
         <h2 class="center-align"> Edit Entry "<?php echo $entry_title;?>"</h2>
 
-        <form method="post" action="form.php" enctype="multipart/form-data" id="submission_form">
+        <form method="post" action="edit.php" enctype="multipart/form-data" id="submission_form">
 
           <div class="row">
 
