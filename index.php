@@ -40,7 +40,7 @@
 
       <div class="col s12 l4 filterDiv people">
     <!-- put the tag here for filter search ^ -->
-          <div class="card-bg ">
+          <!-- <div class="card-bg ">
             <div class = "col l6 s6 m6 content-tag-div">
                 <div class = "about-tag">
                   People
@@ -61,10 +61,12 @@
                     Body of Article
                 </div>
             </div>
-          </div>
+          </div> -->
+
+
       </div>
 
-      <div class="col s12 l4">
+      <!-- <div class="col s12 l4">
         <div class="card-bg">
           <div class= "card-img"
               style= "background-image: url('https://cdn-images-1.medium.com/max/1200/1*L0zf9ap8xoInVbm78siJBA.png');">
@@ -90,7 +92,9 @@
               Body of article
           </div>
         </div>
-      </div>
+      </div> -->
+
+
     </div>
 
 

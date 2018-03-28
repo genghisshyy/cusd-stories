@@ -87,14 +87,14 @@ if (isset($_POST["submit_button"])){
   $file_path = UPLOAD_PATH . $upload_name;
 
   // check output...
-  var_dump($title);
-  var_dump($tag_line);
-  var_dump($tag_1);
-  var_dump($tag_2);
-  var_dump($url);
-  var_dump($input_type);
-  var_dump($upload_name, $upload_ext);
-  var_dump($file_path);
+  // var_dump($title);
+  // var_dump($tag_line);
+  // var_dump($tag_1);
+  // var_dump($tag_2);
+  // var_dump($url);
+  // var_dump($input_type);
+  // var_dump($upload_name, $upload_ext);
+  // var_dump($file_path);
 
   // connection string for heroku
   $connection_string= "dbname=d9bvjse2g8ba1h host=ec2-54-243-210-70.compute-1.amazonaws.com port=5432 user=dxwirrhzaydomo password=62adc98f8f11caa8d9a71c385d70edb1483dbb761458189b20f5ba9f6ddfae6e sslmode=require";
