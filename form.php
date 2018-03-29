@@ -86,6 +86,10 @@ if (isset($_POST["submit_button"])){
   // catenate path for backend database
   $file_path = UPLOAD_PATH . $upload_name;
 
+  if($file_path == $entry_filepath){
+    echo "yes";
+  }
+
   // check output...
   var_dump($title);
   var_dump($tag_line);
@@ -238,9 +242,10 @@ function print_story($story) {
             </div>
 
           <div class="col s12 l6 center-align">
-            <div class="btn">
-              <input type="file" name= "input_photo" id="input_photo" accept="image/*">
-            </div>
+            <div class="file-field btn" id="file_">
+                <span>Upload File</span>
+                <input type="file" name= "input_photo" id="input_photo" accept="image/*">
+              </div>
           </div>
 
           <div class="col s12 l6 center-align">
