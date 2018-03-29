@@ -51,14 +51,9 @@ if (isset($_GET["id"])){
   $conn = new PDO ("pgsql:".$connection_string);
 
   $entry = exec_sql_query($conn, $select_story, $params)->fetchAll();;
-  $entry_title = $entry[0]["title"];
-  $entry_tagline = $entry[0]["tag_line"];
-  $entry_url = $entry[0]["url"];
-  $entry_input = $entry[0]["input_type"];
-  $entry_title = $entry[0]["title"];
+
   $entry_filepath = $entry[0]["file_path"];
-  $entry_tag_1 = $entry[0]["tag_1"];
-  $entry_tag_2 = $entry[0]["tag_2"];
+
   //echo $entry_tag_2;
   //get just the name of the file to display
 
@@ -158,10 +153,10 @@ if (isset($_POST["update_button"])){
        $ext_str = pathinfo($file['name'], PATHINFO_EXTENSION);
        $ext = filter_var(strtolower($ext_str), FILTER_SANITIZE_STRING);
     if ($updated) {
-      echo "made it in there";
+      //echo "made it in there";
       $insertID = 0;
       $updated =exec_sql_query($conn, $update, $params);
-      var_dump($updated);
+      //var_dump($updated);
       move_uploaded_file($file["tmp_name"], "img/uploads/" . (string) $insertID . "." . $ext);
       $insertID += 1;
     } else {
@@ -194,6 +189,33 @@ if (isset($_POST["delete_button"])){ //delete the entry
   }
 }
 
+if (isset($_GET["id"])){
+  $id = ($_GET["id"]);
+  //echo $id;
+  $select_story = "SELECT * From posts2 WHERE id = :id";
+  $params = array(
+    ':id' => $id
+  );
+
+  // connection string for heroku
+  $connection_string= "dbname=d9bvjse2g8ba1h host=ec2-54-243-210-70.compute-1.amazonaws.com port=5432 user=dxwirrhzaydomo password=62adc98f8f11caa8d9a71c385d70edb1483dbb761458189b20f5ba9f6ddfae6e sslmode=require";
+
+  // PDO connection using heroku string
+  $conn = new PDO ("pgsql:".$connection_string);
+
+  $entry = exec_sql_query($conn, $select_story, $params)->fetchAll();;
+  $entry_title = $entry[0]["title"];
+  $entry_tagline = $entry[0]["tag_line"];
+  $entry_url = $entry[0]["url"];
+  $entry_input = $entry[0]["input_type"];
+  $entry_title = $entry[0]["title"];
+  $entry_filepath = $entry[0]["file_path"];
+  $entry_tag_1 = $entry[0]["tag_1"];
+  $entry_tag_2 = $entry[0]["tag_2"];
+  //echo $entry_tag_2;
+  //get just the name of the file to display
+
+}
 
 ?>
 
