@@ -28,11 +28,14 @@ echo '
 <div class="col s12 l4 filterDiv '.$row['tag_1'].'">
 
       <div class="card-bg">
-        <div class = "col l6 s6 m6 content-tag-div">
-            <div class = "about-tag">
+        <div class = "row content-tag-div">
+            <div class = "col s3 about-tag">
               '.$row['tag_1'].'
             </div>
-            <div class = "type-tag">
+            <div class = "col s3 about-tag">
+              '.$row['tag_2'].'
+            </div>
+            <div class = "col s3 type-tag">
               '.$row['input_type'].'
             </div>
         </div>

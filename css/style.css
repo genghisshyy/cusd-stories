@@ -40,14 +40,14 @@ nav {
 .about-tag {
   text-align: center;
   width: 50%;
-  padding: 0.5rem;
+  padding: 0.5rem !important;
   float: left;
   background: #5ca772; }
 
 .type-tag {
   text-align: center;
   width: 50%;
-  padding: 0.5rem;
+  padding: 0.5rem !important;
   float: right;
   background: #c9c9c9; }
 

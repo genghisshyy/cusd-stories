@@ -49,6 +49,7 @@ $card-img-height: 310px;
 .row .col .content-tag-div{
   color: white;
   padding: 0.0rem;
+
 }
 
 .main{
@@ -62,15 +63,16 @@ nav{
 .about-tag{
   text-align: center;
   width: 50%;
-  padding: 0.5rem;
+  padding: 0.5rem !important;
   float: left;
   background: $lightgreen;
+
 }
 
 .type-tag{
   text-align: center;
   width: 50%;
-  padding: 0.5rem;
+  padding: 0.5rem !important;
   float: right;
   background: $lightgrey;
 }
