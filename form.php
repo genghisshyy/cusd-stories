@@ -85,10 +85,7 @@ if (isset($_POST["submit_button"])){
 
   // catenate path for backend database
   $file_path = UPLOAD_PATH . $upload_name;
-
-  if($file_path == $entry_filepath){
-    echo "yes";
-  }
+  
 
   // check output...
   var_dump($title);
@@ -214,7 +211,7 @@ function print_story($story) {
 
             <!-- right side -->
             <div class="section col s12 l6">
-              <h5>URL</h5>
+              <h5>URL</h5]>
               <input class="col s12" type="text" name="url" pattern="https?://.+" title="https or http URLs only">
             </div>
 
