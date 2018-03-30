@@ -85,16 +85,17 @@ if (isset($_POST["submit_button"])){
 
   // catenate path for backend database
   $file_path = UPLOAD_PATH . $upload_name;
+  
 
   // check output...
-  // var_dump($title);
-  // var_dump($tag_line);
-  // var_dump($tag_1);
-  // var_dump($tag_2);
-  // var_dump($url);
-  // var_dump($input_type);
-  // var_dump($upload_name, $upload_ext);
-  // var_dump($file_path);
+  var_dump($title);
+  var_dump($tag_line);
+  var_dump($tag_1);
+  var_dump($tag_2);
+  var_dump($url);
+  var_dump($input_type);
+  var_dump($upload_name, $upload_ext);
+  var_dump($file_path);
 
   // connection string for heroku
   $connection_string= "dbname=d9bvjse2g8ba1h host=ec2-54-243-210-70.compute-1.amazonaws.com port=5432 user=dxwirrhzaydomo password=62adc98f8f11caa8d9a71c385d70edb1483dbb761458189b20f5ba9f6ddfae6e sslmode=require";
@@ -127,8 +128,10 @@ if ($field_str == "tag_1, tag_2") {
    $ext_str = pathinfo($file['name'], PATHINFO_EXTENSION);
    $ext = filter_var(strtolower($ext_str), FILTER_SANITIZE_STRING);
 if (exec_sql_query($conn, $insertion_query, $params)) {
-  $insertID = $conn->lastInsertId();
+  $insertID = 0;
+  exec_sql_query($conn, $insertion_query, $params);
   move_uploaded_file($file["tmp_name"], "img/uploads/" . (string) $insertID . "." . $ext);
+  $insertID += 1;
 } else {
   record_message("Execution of query failed, check inputs.");
 }
@@ -143,6 +146,21 @@ if (exec_sql_query($conn, $insertion_query, $params)) {
     //TODO: MOVE UPLOADED FILE TO 'img/uploads' folder on successful input into database
 
   };
+function print_story($story) {
+  ?>
+  <tr>
+    <td><?php echo htmlspecialchars($story["title"]);?></td>
+    <td>
+      <?php echo htmlspecialchars($story["tag_line"]);?>
+    </td>
+    <td><?php echo htmlspecialchars($story["url"]);?></td>
+    <td><?php echo "<img src =\"". ($story["file_path"]). "\">";?></td>
+    <td><?php echo htmlspecialchars($story["tag_1"]);?></td>
+    <td><?php echo htmlspecialchars($story["tag_2"]);?></td>
+    <td><?php echo "<a href=\"". "/edit.php?id=". $story["id"] . "\"> <button class='btn' type='submit' action='edit.php'> Edit </button></a>";?></td>
+  </tr>
+  <?php
+}
 
 ?>
 <!DOCTYPE html>
@@ -193,7 +211,7 @@ if (exec_sql_query($conn, $insertion_query, $params)) {
 
             <!-- right side -->
             <div class="section col s12 l6">
-              <h5>URL</h5>
+              <h5>URL</h5]>
               <input class="col s12" type="text" name="url" pattern="https?://.+" title="https or http URLs only">
             </div>
 
@@ -221,9 +239,10 @@ if (exec_sql_query($conn, $insertion_query, $params)) {
             </div>
 
           <div class="col s12 l6 center-align">
-            <div class="btn">
-              <input type="file" name= "input_photo" id="input_photo" accept="image/*">
-            </div>
+            <div class="file-field btn" id="file_">
+                <span>Upload File</span>
+                <input type="file" name= "input_photo" id="input_photo" accept="image/*">
+              </div>
           </div>
 
           <div class="col s12 l6 center-align">
@@ -233,6 +252,46 @@ if (exec_sql_query($conn, $insertion_query, $params)) {
 
         </form>
        </div> <!-- close row -->
+       <div class="row">
+         <h2 class="center-align"> Edit an Existing Story</h2>
+         <?php
+            $connection_string= "dbname=d9bvjse2g8ba1h host=ec2-54-243-210-70.compute-1.amazonaws.com port=5432 user=dxwirrhzaydomo password=62adc98f8f11caa8d9a71c385d70edb1483dbb761458189b20f5ba9f6ddfae6e sslmode=require";
+
+            // PDO connection using heroku string
+            $conn = new PDO ("pgsql:".$connection_string);
+
+            $select_all = "SELECT * From posts2";
+            $params = array(
+            );
+            $stories = exec_sql_query($conn, $select_all, $params)->fetchAll();;
+            if (isset($stories) and !empty($stories)) {
+        ?>
+            <table>
+              <thead>
+                <th>Title</th>
+                <th>Tagline</th>
+                <th>URL</th>
+                <th>Image</th>
+                <th>Tag 1</th>
+                <th>Tag 2</th>
+              </thead>
+              <tbody>
+              <?php
+                foreach($stories as $story) {
+                  print_story($story);
+                }
+              ?>
+            </tbody>
+              </table>
+              <?php
+            }else{
+              echo "<p>No stories.</p>";
+            }
+            ?>
+
+
+      </div>
+
     </div> <!--close container -->
 
     <?php include "includes/footer.php"; ?>

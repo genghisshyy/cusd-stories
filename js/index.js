@@ -29,54 +29,40 @@ $("#submission_form").bind("submit", function () {
   };
 });
 
-
-
-
-function getData(c) {
-  var x, i;
-  x = document.getElementsByClassName("filterDiv");
-  if (c == "all") c = "";
-  for (i = 0; i < x.length; i++) {
-    RemoveClass(x[i], "show");
-    if (x[i].className.indexOf(c) > -1) AddClass(x[i], "show");
+//code inspired by stackoverflow
+// Span
+var wrapper = document.getElementsByClassName('file-path-wrapper');
+// Button
+var fileupload = document.getElementsByName('input_photo');
+// On change
+for( item in fileupload ) {
+  // Detect changes
+  fileupload[item].onchange = function() {
+    // Echo filename in span
+    wrapper[0].innerHTML = this.files[0].name;
   }
 }
 
-function AddClass(element, name) {
-  var i, arr1, arr2;
-  arr1 = element.className.split(" ");
-  arr2 = name.split(" ");
-  for (i = 0; i < arr2.length; i++) {
-    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
-  }
-}
+function readURL(input) {
+  //console.log("readURL running");
+  //console.log(input.files);
+  //console.log(target.result);
+  //console.log("im runn");
+  if (input.files && input.files[0]) {
+    console.log(input.files[0]);
+    var reader = new FileReader();
 
-function RemoveClass(element, name) {
-  var i, arr1, arr2;
-  arr1 = element.className.split(" ");
-  arr2 = name.split(" ");
-  for (i = 0; i < arr2.length; i++) {
-    while (arr1.indexOf(arr2[i]) > -1) {
-      arr1.splice(arr1.indexOf(arr2[i]), 1);
+    reader.onload = function(e) {
+      $('#entry_photo').attr('src', e.target.result);
     }
+
+    reader.readAsDataURL(input.files[0]);
   }
-  element.className = arr1.join(" ");
 }
 
-// Add active class to the current button (highlight it)
-//
-// $('.butn').click(function() {
-//     $(this).toggleClass('active');
-// });
-//
-//
-// var btnContainer = document.getElementById("container");
-// var btns = btnContainer.getElementsByClassName("butn");
-//
-// for (var i = 0; i < btns.length; i++) {
-//   btns[i].addEventListener("click", function() {
-//     var current = document.getElementsByClassName("active");
-//     current[0].className = current[0].className.replace(" active", "");
-//     this.className += " active";
-//   });
-// }
+$("#entry_file").change(function() {
+  //console.log(#entry_photo);
+  //console.log(#entry_file);
+  console.log("im in here");
+  readURL(this);
+});
