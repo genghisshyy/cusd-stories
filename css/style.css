@@ -23,7 +23,17 @@ body {
   width: auto;
   box-shadow: 0 4px 20px 6px rgba(0, 0, 0, 0.1), 0 10px 25px 0 rgba(0, 0, 0, 0.1);
   -webkit-transition: box-shadow 0.2s ease-in, -webkit-transform 0.2s ease-in;
-  transition: box-shadow 0.2s ease-in, transform 0.2s ease-in; }
+  transition: box-shadow 0.2s ease-in, transform 0.2s ease-in;
+  color: black; }
+  .card-bg .card-title {
+    font-weight: bold;
+    font-size: 1.35rem; }
+  .card-bg .card-description {
+    font-weight: lighter; }
+
+@media screen and (min-width: 993px) {
+  #footer-wrap {
+    margin: 0 40px; } }
 
 .card-bg:hover {
   position: relative;
@@ -56,7 +66,7 @@ nav {
   background: #c9c9c9; }
 
 .card-img {
-  height: 260px;
+  height: 320px;
   width: auto;
   background-size: cover;
   background-repeat: no-repeat;
@@ -120,9 +130,6 @@ a.footer-link:hover {
 p.right {
   text-align: center; }
 
-@media only screen and (min-width: 1200px) and (max-width: 1600px) {
-  footer {
-    margin-left: 200px; } }
 p.float-left {
   text-align: center;
   left: 200px; }

@@ -49,15 +49,15 @@ function exec_sql_query($db, $sql, $params = array()) {
   <a href ="'.$row['url'].'">
   <div class="col s12 l4">
         <div class="card-bg">
-          <div class = "row content-tag-div">
+          <div class = "content-tag-div">
               <div class = "col s3 about-tag">
-                '.$row['tag_1'].'
+                '.ucfirst($row['tag_1']).'
               </div>
               <div class = "col s3 about-tag">
-                '.$row['tag_2'].'
+                '.ucfirst($row['tag_2']).'
               </div>
               <div class = "col s3 type-tag">
-                '.$row['input_type'].'
+                '.ucfirst($row['input_type']).'
               </div>
           </div>
           <div class= "card-img"

@@ -7,6 +7,8 @@ $navbar-color : #FFFFFF;
 $lightgreen: #5ca772;
 $lightgrey: #c9c9c9;
 
+
+
 // setup gotham-book font from truetype file
 @font-face {
     font-family: Gotham-Book;
@@ -20,7 +22,8 @@ body{
 }
 
 $card-height: 430px;
-$card-img-height: 260px;
+$card-img-height: 320px;
+$large-and-up: 993px;
 
 .cusd-logo{
   height: 4rem;
@@ -41,7 +44,24 @@ $card-img-height: 260px;
    box-shadow: 0 4px 20px 6px rgba(0, 0, 0, 0.1), 0 10px 25px 0 rgba(0, 0, 0, 0.1);
    -webkit-transition: box-shadow 0.2s ease-in, -webkit-transform 0.2s ease-in;
    transition: box-shadow 0.2s ease-in, transform 0.2s ease-in;
+   color:black;
+   .card-title{
+     font-weight: bold;
+     font-size: 1.35rem;
+   }
+   .card-description{
+     font-weight: lighter;
+   }
 }
+
+// looks a bit better with the offset
+#footer-wrap{
+
+  @media screen and (min-width: $large-and-up) {
+  margin: 0 40px;
+  }
+}
+
 
 .card-bg:hover {
   position:relative;
@@ -203,12 +223,12 @@ $grey: #90949C;
     text-align: center;
   }
 
-      @media only screen and (min-width: 1200px) and (max-width: 1600px) {
-        footer{
-            margin-left:200px;
-
-        }
-    }
+    //   @media only screen and (min-width: 1200px) and (max-width: 1600px) {
+    //     footer{
+    //         margin-left:200px;
+    //
+    //     }
+    // }
 
 
 

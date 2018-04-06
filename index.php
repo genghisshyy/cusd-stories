@@ -30,7 +30,35 @@
      <div class="row center-align">
 
      <?php include "includes/allLoad.php"; ?>
+     <!-- <a href="http://materializecss.com/forms.html">
+       <div class="col s12 l4">
+             <div class="card-bg">
+               <div class="content-tag-div">
+                   <div class="col s3 about-tag">
+                     impact
+                   </div>
+                   <div class="col s3 about-tag">
+                     lifestyle
+                   </div>
+                   <div class="col s3 type-tag">
+                     article
+                   </div>
+               </div>
+               <div class="card-img" style="background-image: url(img/uploads/greg.jpg);">
+               </div>
 
+               <div class="card-body">
+                   <div class="card-title">
+                       jlhk
+                   </div>
+                   <div class="card-description">
+                       kgkhg
+                   </div>
+               </div>
+             </div>
+
+         </div>
+         </a> -->
       </div>
 
 
