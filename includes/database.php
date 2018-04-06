@@ -25,8 +25,7 @@ function exec_sql_query($db, $sql, $params = array()) {
 foreach ($table as $row){
 echo '
 <a href ="'.$row['url'].'">
-<div class="col s12 l4 filterDiv '.$row['tag_1'].'">
-
+<div class="col s12 l4">
       <div class="card-bg">
         <div class = "row content-tag-div">
             <div class = "col s3 about-tag">

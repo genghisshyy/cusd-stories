@@ -11,6 +11,10 @@ body {
   width: 8rem;
   margin-left: 15px; }
 
+#type_header .heading {
+  font-size: 1.5rem;
+  font-weight: bold; }
+
 .card-bg {
   background-color: white;
   margin: auto;
