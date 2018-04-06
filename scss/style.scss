@@ -19,6 +19,7 @@ body{
     // position: fixed;
     height: 66px;
     padding-top: 2px;
+    font-family:'Avenir','Gotham-book', 'Roboto', sans-serif;
 }
 
 $card-height: 430px;
@@ -141,8 +142,6 @@ nav{
 
 // Everything on index page under here, this looks different than articles and videos
 #index {
-
-  font-family: 'Gotham-book', 'Roboto', sans-serif;
   background-color: white;
 
   p {
