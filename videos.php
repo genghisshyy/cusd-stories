@@ -18,86 +18,12 @@
     <?php include "includes/navbar.php"; ?>
 
 
-    <?php include "includes/sidenav.php"; ?>
 
 
-    <?php
-    $key = "5aa6bdf94dfbbc04c97e91c6f493c78a9eb37adf91222";
 
-    function get_info($target, $key){
-      $ret = file_get_contents("https://api.linkpreview.net?key={$key}&q={$target}");
-      $page_details = json_decode($ret, true);
-      return $page_details;
-    }
-
-    // $info = get_info("https://medium.com/@cathyliu_55604/how-cusd-has-impacted-you-tony-li-8cf3296fbf5f", $key);
-
-    // $info = get_info("https://medium.com/@cathyliu_55604/how-cusd-has-impacted-you-tony-li-8cf3296fbf5f", $key);
-
-    ?>
-
-     <div class="row center-align main">
-
-
-      <div id= "main_cards" class="col s12 l4">
-    <!-- put the tag here for filter search ^ -->
-          <!-- <div class="card-bg ">
-            <div class = "col l6 s6 m6 content-tag-div">
-                <div class = "about-tag">
-                  People
-                </div>
-                <div class = "type-tag">
-                  Articles
-                </div>
-            </div>
-            <div class= "card-img"
-                style= "background-image: url('https://cdn-images-1.medium.com/max/1200/1*L0zf9ap8xoInVbm78siJBA.png');">
-            </div>
-
-            <div class="card-body">
-                <div class = "card-title">
-                    Name of Article
-                </div>
-                <div class = "card-description">
-                    Body of Article
-                </div>
-            </div>
-          </div> -->
-
-
+      <?php include "includes/sidenav.php"; ?>
+       <div class="row center-align main">
       </div>
-
-      <!-- <div class="col s12 l4">
-        <div class="card-bg">
-          <div class= "card-img"
-              style= "background-image: url('https://cdn-images-1.medium.com/max/1200/1*L0zf9ap8xoInVbm78siJBA.png');">
-          </div>
-          <div class="card-body">
-            <div class = "card-title">
-                Name of Article
-            </div>
-                Body of Article
-          </div>
-        </div>
-      </div>
-
-      <div class="col s12 l4">
-        <div class="card-bg">
-          <div class= "card-img"
-              style= "background-image: url('https://cdn-images-1.medium.com/max/1200/1*L0zf9ap8xoInVbm78siJBA.png');">
-          </div>
-          <div class="card-body">
-            <div class = "card-title">
-              Title of Article
-            </div>
-              Body of article
-          </div>
-        </div>
-      </div> -->
-
-
-    </div>
-
 
 
 
