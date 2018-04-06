@@ -1,4 +1,6 @@
-
+<?php
+//sidenav bar for the article and video page
+?>
 <div id="container">
   <div id="menu">
     <ul id="slide-out" class="side-nav fixed">
