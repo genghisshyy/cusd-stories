@@ -124,11 +124,10 @@ if ($field_str == "tag_1, tag_2") {
  }
 
  if ($file['error']==0) {
-   $ext_str = pathinfo($file['name'], PATHINFO_EXTENSION);
-   $ext = filter_var(strtolower($ext_str), FILTER_SANITIZE_STRING);
+   // $ext_str = pathinfo($file['name'], PATHINFO_EXTENSION);
+   // $ext = filter_var(strtolower($ext_str), FILTER_SANITIZE_STRING);
 if (exec_sql_query($conn, $insertion_query, $params)) {
-  $insertID = $conn->lastInsertId();
-  move_uploaded_file($file["tmp_name"], "img/uploads/" . (string) $insertID . "." . $ext);
+  move_uploaded_file($file["tmp_name"], $file_path);
 } else {
   record_message("Execution of query failed, check inputs.");
 }

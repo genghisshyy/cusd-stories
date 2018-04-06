@@ -7,8 +7,8 @@
 
   <head>
     <?php include "includes/header-core.php";
-     $current_page = "index";
-    ?>
+      $current_page = "video";
+     ?>
   </head>
 
   <body id="index">
@@ -16,6 +16,10 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <?php include "includes/navbar.php"; ?>
+
+
+    <?php include "includes/sidenav.php"; ?>
+
 
     <?php
     $key = "5aa6bdf94dfbbc04c97e91c6f493c78a9eb37adf91222";
@@ -34,9 +38,8 @@
 
      <div class="row center-align main">
 
-     <?php include "includes/database.php"; ?>
 
-      <div class="col s12 l4 filterDiv people">
+      <div id= "main_cards" class="col s12 l4">
     <!-- put the tag here for filter search ^ -->
           <!-- <div class="card-bg ">
             <div class = "col l6 s6 m6 content-tag-div">
@@ -103,6 +106,7 @@
 
     <?php include "includes/js-scripts.php"; ?>
 
+    <script> type_controller('<?php echo $current_page?>', 'ALL') </script>
 
   </body>
 
