@@ -1,5 +1,6 @@
 <?php
-// AJAX search by specific input type (article or video) and category
+// Used in the AJAX search (in index.js) grabs the specific cards by input_type (video
+// or article) and by catgory
 
 include "card-model.php";
 require "connection.php";
@@ -28,6 +29,7 @@ else{
 
 }
 
+// grab entries from the database
 $table = exec_sql_query($conn, $query, $params)->fetchAll();
 
 foreach ($table as $row){

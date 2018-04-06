@@ -1,4 +1,5 @@
 <?php
+// the model for an individual card
 // this is designed to be used within a foreach loop to kick out the individual cards
 function generateCard($row){
   echo '
