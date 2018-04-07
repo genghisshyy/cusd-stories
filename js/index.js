@@ -13,8 +13,6 @@ $(function(){
     pathname = pathname.slice(0, -4);
 
     $('#nav-mobile li a').each(function() {
-      console.log($(this).attr("id"));
-      console.log(pathname);
     if ($(this).attr('id') == pathname)
     {
         $(this).addClass('current');
