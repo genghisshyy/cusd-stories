@@ -33,7 +33,7 @@ function type_controller(input_type, tag){
      .done(function( data ) {
        $(".main").empty();
        if (!$.trim(data)){
-          $(".main").append("No Items found");
+          $(".main").append("No Stories found");
         }else{
           $(".main").append(data);
         }
