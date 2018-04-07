@@ -193,7 +193,7 @@ function print_story($story) {
 
             <div class="section col s12 l6">
               <h5>Tag Line</h5>
-              <input class="col s12" type="text" name="tag_line" maxlength="80">
+              <input id="tag_line" class="col s12" type="text" name="tag_line" data-length="80">
             </div>
 
             <div class="section col s12 l6">

@@ -5,6 +5,11 @@ $("#submission_form").bind("submit", function () {
   };
 });
 
+// assert character length on tagline
+$(document).ready(function() {
+    $('#tag_line').characterCounter();
+});
+
 // AJAX request the specific search query
 function type_controller(input_type, tag){
   $.get( "getTags.php", {'input_type': input_type, 'tag': tag})
