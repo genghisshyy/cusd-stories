@@ -5,6 +5,25 @@ $("#submission_form").bind("submit", function () {
   };
 });
 
+
+// active page highlighter
+
+$(function(){
+    var pathname = (window.location.pathname.match(/[^\/]+$/)[0]);
+    pathname = pathname.slice(0, -4);
+
+    $('#nav-mobile li a').each(function() {
+      console.log($(this).attr("id"));
+      console.log(pathname);
+    if ($(this).attr('id') == pathname)
+    {
+        $(this).addClass('current');
+    }
+    });
+});
+
+
+
 // assert character length on tagline
 $(document).ready(function() {
     $('#tag_line').characterCounter();

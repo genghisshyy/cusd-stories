@@ -8,7 +8,10 @@ $lightgreen: #5ca772;
 $lightgrey: #c9c9c9;
 
 
-
+// active page highlighter
+.current {
+  color: $lightgreen;
+}
 // setup gotham-book font from truetype file
 @font-face {
     font-family: Gotham-Book;
@@ -160,7 +163,7 @@ nav{
 %articles-videos {
 
   font-family: 'Gotham-book', 'Roboto', sans-serif;
-  background-color: lightgray;
+  // background-color: lightgray;
 
   p {
     color: $navbar-color;
