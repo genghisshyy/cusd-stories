@@ -1,4 +1,5 @@
-# CUSD Stories
+# [CUSD Stories](https://cusd-stories.herokuapp.com/)
+
 A place to read about all the great things made by the members of Cornell University Sustainable Design's.
 
 ### Technicalities
@@ -9,7 +10,13 @@ This site was designed by the Marketing and Communications (Marcomm) subteam and
 Any technical questions? Feel free to contact me at gjs86@cornell.edu
 
 ## Screenshots
+
 ---
+
+#### A glimpse of the homepage, featuring both Article and Video Stories by CUSD members
 ![](screenshot.png)
+
 ---
+
+#### The Articles page, with the ability to AJAX sort based on tag
 ![](screenshot2.png)
