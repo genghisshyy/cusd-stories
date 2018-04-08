@@ -1,6 +1,6 @@
 # [CUSD Stories](https://cusd-stories.herokuapp.com/)
 
-A place to read about all the great things made by the members of Cornell University Sustainable Design's.
+A place to read about all the great things made by the members of [Cornell University Sustainable Design](https://cusd.cornell.edu/).
 
 ### Technicalities
 The site is build using PHP 7.1 and the [Materialize.css](http://materializecss.com/about.html) framework. It is deployed on [Heroku](https://devcenter.heroku.com/start). For styling ease, SCSS [(Sass)](https://sass-lang.com/) is used.
