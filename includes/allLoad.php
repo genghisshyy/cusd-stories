@@ -1,6 +1,5 @@
 <?php
 // loads in all the entries on the index page in the beginning
-
 include "card-model.php";
 require "connection.php";
 
