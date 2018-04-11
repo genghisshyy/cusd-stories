@@ -70,6 +70,15 @@ $large-and-up: 993px;
       .card-description{
         font-size: 0.9rem;
         height: 55px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+      .about-tag{
+        font-size: 0.75rem;
+      }
+      .type-tag{
+        font-size: 0.75rem;
       }
     }
 }
@@ -88,6 +97,12 @@ $large-and-up: 993px;
         display: -webkit-box;
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
+      }
+      .about-tag{
+        font-size: 0.8rem;
+      }
+      .type-tag{
+        font-size: 0.8rem;
       }
 
     }

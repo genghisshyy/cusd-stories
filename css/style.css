@@ -44,7 +44,14 @@ body {
       font-size: 1.1rem; }
     .card-bg .card-description {
       font-size: 0.9rem;
-      height: 55px; } }
+      height: 55px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical; }
+    .card-bg .about-tag {
+      font-size: 0.75rem; }
+    .card-bg .type-tag {
+      font-size: 0.75rem; } }
 @media only screen and (max-width: 1150px) and (min-width: 994px) {
   .card-bg {
     font-size: 0.9rem; }
@@ -56,7 +63,11 @@ body {
       height: 55px;
       display: -webkit-box;
       -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical; } }
+      -webkit-box-orient: vertical; }
+    .card-bg .about-tag {
+      font-size: 0.8rem; }
+    .card-bg .type-tag {
+      font-size: 0.8rem; } }
 @media screen and (min-width: 993px) {
   #footer-wrap {
     margin: 0 40px; } }
@@ -147,7 +158,7 @@ nav {
     color: #FFFFFF; }
 
 a.footer-link {
-  padding-left: 20px;
+  padding-left: 100px;
   color: #6BAA70; }
 
 nav ul a {
@@ -156,9 +167,6 @@ nav ul a {
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
   a.footer-link {
     padding-left: 100px; } }
-@media only screen and (min-width: 1200px) and (max-width: 1600px) {
-  .float-left {
-    float: left; } }
 a.footer-link:hover {
   color: #9CC5A1; }
 
@@ -172,12 +180,9 @@ p.float-left {
 nav ul a {
   color: #90949C; }
 
-@media only screen and (min-width: 1200px) and (max-width: 1600px) {
-  .float-right {
-    float: right; } }
 p.float-right {
   text-align: center;
-  margin-right: 35px; }
+  margin-left: 95px; }
   @media only screen and (max-width: 1200px) {
     p.float-right {
       margin: 20px 0; } }
@@ -205,18 +210,16 @@ p.float-right {
 
 /*# sourceMappingURL=style.css.map */
 /* ------js filter search -------*/
-@media only screen and (min-width: 1200px) and (max-width: 1600px) {
-  .main {
-    margin-left: 200px !important; } }
 .filterDiv {
   display: none; }
 
 .show {
   display: block; }
 
-.container {
+#container {
   margin-top: 20px;
-  overflow: hidden; }
+  overflow: hidden;
+  padding-left: 200px; }
 
 .side-nav a:focus {
   background-color: #EFEFEF; }
