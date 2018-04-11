@@ -181,7 +181,7 @@ nav{
 }
 
 a.footer-link{
-  padding-left:20px;
+  padding-left:100px;
   color: #6BAA70;
 }
 
@@ -210,11 +210,17 @@ $grey: #90949C;
 
 
 
-    @media only screen and (min-width: 1200px) and (max-width: 1600px) {
-      .float-left{
-        float:left;
-      }
-   }
+  //  @media only screen and (min-width: 1200px) and (max-width: 1600px) {
+  //    a.footer-link {
+  //      padding-left: 200px;
+  //    }
+  // }
+
+   //  @media only screen and (min-width: 1200px) and (max-width: 1600px) {
+   //    .float-left{
+   //      float:left;
+   //    }
+   // }
 
     a.footer-link:hover {
       color: #9CC5A1;
@@ -243,15 +249,15 @@ $grey: #90949C;
     color: #90949C; }
 
 
-    @media only screen and (min-width: 1200px) and (max-width: 1600px) {
-      .float-right{
-        float:right;
-      }
-    }
+    // @media only screen and (min-width: 1200px) and (max-width: 1600px) {
+    //   .float-right{
+    //     float:right;
+    //   }
+    // }
 
   p.float-right{
     text-align: center;
-    margin-right: 35px;
+    margin-left: 95px;
     @media only screen and (max-width: 1200px) {
       margin: 20px 0;
     }
@@ -296,10 +302,10 @@ $grey: #90949C;
 
 
   /* ------js filter search -------*/
-
-      @media only screen and (min-width: 1200px) and (max-width: 1600px) {
-        .main {
-          margin-left: 200px !important; } }
+      //
+      // @media only screen and (min-width: 1200px) and (max-width: 1600px) {
+      //   .main {
+      //     margin-left: 200px !important; } }
 
 
   .filterDiv {
@@ -310,10 +316,41 @@ $grey: #90949C;
     display: block;
   }
 
-  .container {
+
+// don't hide the navbar
+//   @media only screen and (max-width: 992px)  {
+//     .side-nav {
+//       &.fixed {
+//         transform: translateX(0);
+//
+//
+//         &.right-aligned {
+//           transform: translateX(0);
+//         }
+//       }
+//     }
+// }
+  //     a {
+  //       padding: 0 $sidenav-padding;
+  //     }
+  //
+  //     .user-view,
+  //     .userView {
+  //       padding: $sidenav-padding $sidenav-padding 0;
+  //     }
+  //   }
+  // }
+
+
+
+
+  #container {
     margin-top: 20px;
     overflow: hidden;
+    padding-left: 200px;
   }
+
+  //padding-left prevents overlap with nav
 
 
   .side-nav a:focus {
