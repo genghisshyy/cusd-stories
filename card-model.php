@@ -27,6 +27,7 @@ function generateCard($row){
                 <div class = "card-title">
                     '.$row['title'].'
                 </div>
+
                 <div class = "card-description">
                     '.$row['tag_line'].'
                 </div>
