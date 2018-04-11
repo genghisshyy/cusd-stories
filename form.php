@@ -13,7 +13,7 @@ $is_valid = true;
 // execute query or fail with PDO exception
 function exec_sql_query($db, $sql, $params = array()) {
   try {
-    var_dump($db);
+    //var_dump($db);
     $query = $db->prepare($sql);
     if ($query and $query->execute($params)) {
       return $query;
@@ -77,25 +77,25 @@ if (isset($_POST["submit_button"])){
   $file = $_FILES["input_photo"];
   $upload_name = basename($file["name"]);
   $upload_ext = strtolower(pathinfo($upload_name, PATHINFO_EXTENSION) );
-
+  var_dump($upload_ext);
   // assert valid file extension on backend
   if (!in_array($upload_ext, VALID_EXTNS)){
     $is_valid = false;
   };
-
+  $t = time();
   // catenate path for backend database
-  $file_path = UPLOAD_PATH . $upload_name;
+  $file_path = UPLOAD_PATH . $t .".". $upload_ext;
 
 
   // check output...
-  var_dump($title);
-  var_dump($tag_line);
-  var_dump($tag_1);
-  var_dump($tag_2);
-  var_dump($url);
-  var_dump($input_type);
-  var_dump($upload_name, $upload_ext);
-  var_dump($file_path);
+  //var_dump($title);
+//  var_dump($tag_line);
+//  var_dump($tag_1);
+//  var_dump($tag_2);
+//  var_dump($url);
+//  var_dump($input_type);
+//  var_dump($upload_name, $upload_ext);
+//  var_dump($file_path);
 
   // connection string for heroku
   $connection_string= "dbname=d9bvjse2g8ba1h host=ec2-54-243-210-70.compute-1.amazonaws.com port=5432 user=dxwirrhzaydomo password=62adc98f8f11caa8d9a71c385d70edb1483dbb761458189b20f5ba9f6ddfae6e sslmode=require";
@@ -104,13 +104,14 @@ if (isset($_POST["submit_button"])){
   $conn = new PDO ("pgsql:".$connection_string);
 
  if ($is_valid) {
-  $insertion_query = "INSERT INTO posts2 (title, tag_line, url, input_type, file_path, $field_str) VALUES (:title, :tag_line, :url, :input_type, :file_path, $param_str)";
+  $insertion_query = "INSERT INTO posts2 (title, tag_line, url, input_type, file_path, $field_str, file_ext) VALUES (:title, :tag_line, :url, :input_type, :file_path, $param_str, :file_ext)";
   $params = array(
    ":title" => $title,
    ":tag_line" => $tag_line,
    ":url" => $url,
    ":input_type" => $input_type,
    ":file_path" => $file_path,
+   ":file_ext" => $upload_ext
  );
 
 if ($field_str == "tag_1, tag_2") {
@@ -127,7 +128,8 @@ if ($field_str == "tag_1, tag_2") {
  if ($file['error']==0) {
    // $ext_str = pathinfo($file['name'], PATHINFO_EXTENSION);
    // $ext = filter_var(strtolower($ext_str), FILTER_SANITIZE_STRING);
-if (exec_sql_query($conn, $insertion_query, $params)) {
+$inserted =exec_sql_query($conn, $insertion_query, $params);
+if ($inserted) {
   move_uploaded_file($file["tmp_name"], $file_path);
 } else {
   record_message("Execution of query failed, check inputs.");
@@ -151,7 +153,7 @@ function print_story($story) {
       <?php echo htmlspecialchars($story["tag_line"]);?>
     </td>
     <td><?php echo htmlspecialchars($story["url"]);?></td>
-    <td><?php echo "<img src =\"". ($story["file_path"]). "\">";?></td>
+    <td><?php echo "<img src =\"". ($story["file_path"]). "\" id='form_photo' >";?></td>
     <td><?php echo htmlspecialchars($story["tag_1"]);?></td>
     <td><?php echo htmlspecialchars($story["tag_2"]);?></td>
     <td><?php echo "<a href=\"". "/edit.php?id=". $story["id"] . "\"> <button class='btn' type='submit' action='edit.php'> Edit </button></a>";?></td>
@@ -207,7 +209,7 @@ function print_story($story) {
             </div>
             <!-- right side -->
             <div class="section col s12 l6">
-              <h5>URL</h5]>
+              <h5>URL</h5>
               <input class="col s12" type="text" name="url" pattern="https?://.+" title="https or http URLs only">
             </div>
 

@@ -109,9 +109,9 @@ if (isset($_POST["update_button"])){
     if (!in_array($upload_ext, VALID_EXTNS)){
       $is_valid = false;
     };
-
+    $t = time();
     // catenate path for backend database
-    $new_file_path = UPLOAD_PATH . $upload_name;
+    $new_file_path = UPLOAD_PATH . $t .".". $upload_ext;
 
   }
 
@@ -154,11 +154,9 @@ if (isset($_POST["update_button"])){
        $ext = filter_var(strtolower($ext_str), FILTER_SANITIZE_STRING);
     if ($updated) {
       //echo "made it in there";
-      $insertID = 0;
-      $updated =exec_sql_query($conn, $update, $params);
+      //$updated =exec_sql_query($conn, $update, $params);
       //var_dump($updated);
-      move_uploaded_file($file["tmp_name"], "img/uploads/" . (string) $insertID . "." . $ext);
-      $insertID += 1;
+      move_uploaded_file($file["tmp_name"], $new_file_path);
     } else {
       record_message("Execution of query failed, check inputs.");
     }
@@ -212,6 +210,7 @@ if (isset($_GET["id"])){
   $entry_filepath = $entry[0]["file_path"];
   $entry_tag_1 = $entry[0]["tag_1"];
   $entry_tag_2 = $entry[0]["tag_2"];
+  $entry_ext = $entry[0]["file_ext"];
   //echo $entry_tag_2;
   //get just the name of the file to display
 
@@ -239,6 +238,7 @@ if (isset($_GET["id"])){
 
      <div class="container">
        <div class="row">
+    <?php if (isset($_GET["id"])){ ?>
         <h2 class="center-align"> Edit Entry "<?php echo $entry_title;?>"</h2>
 
         <form method="post" action="edit.php?id=<?php echo $id;?>" enctype="multipart/form-data" id="submission_form">
@@ -326,7 +326,7 @@ if (isset($_GET["id"])){
             </div>
           </div>
           <div class="col s12 l6">
-            <?php echo "<img src =\"". $entry_filepath . "\" id='entry_photo'>";?>
+            <?php echo "<img src =\"".$entry_filepath . "\" id='entry_photo'>";?>
           </div>
         </div>
           <div class ="row">
@@ -338,6 +338,9 @@ if (isset($_GET["id"])){
             </div>
         </div>
       </div>
+
+    <?php } else{ header("Location: index.php"); }?>
+
     </div>
 
 
