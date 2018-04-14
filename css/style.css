@@ -44,7 +44,14 @@ body {
       font-size: 1.1rem; }
     .card-bg .card-description {
       font-size: 0.9rem;
-      height: 55px; } }
+      height: 55px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical; }
+    .card-bg .about-tag {
+      font-size: 0.75rem; }
+    .card-bg .type-tag {
+      font-size: 0.75rem; } }
 @media only screen and (max-width: 1150px) and (min-width: 994px) {
   .card-bg {
     font-size: 0.9rem; }
@@ -56,7 +63,11 @@ body {
       height: 55px;
       display: -webkit-box;
       -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical; } }
+      -webkit-box-orient: vertical; }
+    .card-bg .about-tag {
+      font-size: 0.8rem; }
+    .card-bg .type-tag {
+      font-size: 0.8rem; } }
 @media screen and (min-width: 993px) {
   #footer-wrap {
     margin: 0 40px; } }
