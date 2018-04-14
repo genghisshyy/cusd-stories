@@ -183,9 +183,6 @@ nav ul a {
 p.float-right {
   text-align: center;
   margin-left: 95px; }
-  @media only screen and (max-width: 1200px) {
-    p.float-right {
-      margin: 20px 0; } }
 
 /* ----------sidenav ---------*/
 /* header text */
