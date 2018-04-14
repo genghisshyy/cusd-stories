@@ -317,7 +317,7 @@ $grey: #90949C;
 
   p.float-right{
     text-align: center;
-    margin-left: 95px;
+    margin-left: 102px;
     @media only screen and (max-width: 1200px) {
       // margin: 20px 0;
     }
@@ -408,6 +408,7 @@ $grey: #90949C;
     margin-top: 20px;
     overflow: hidden;
     padding-left: 200px;
+    padding-right: 30px;
   }
 
   //padding-left prevents overlap with nav

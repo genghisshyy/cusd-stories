@@ -182,7 +182,7 @@ nav ul a {
 
 p.float-right {
   text-align: center;
-  margin-left: 95px; }
+  margin-left: 102px; }
 
 /* ----------sidenav ---------*/
 /* header text */
@@ -216,7 +216,8 @@ p.float-right {
 #container {
   margin-top: 20px;
   overflow: hidden;
-  padding-left: 200px; }
+  padding-left: 200px;
+  padding-right: 30px; }
 
 .side-nav a:focus {
   background-color: #EFEFEF; }
