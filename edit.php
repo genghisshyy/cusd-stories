@@ -1,4 +1,5 @@
 <?php
+include("includes/init.php");
 // declare constants
 const INPUT_TYPE = ["article", "video"];
 const VALID_EXTNS = ["jpg", "jpeg", "png"];
@@ -8,33 +9,6 @@ $upload_submitted = false;
 
 // is valid inputs of form
 $is_valid = true;
-
-// Record a message to display to the user.
-function record_message($message) {
-  global $messages;
-  array_push($messages, $message);
-};
-
-// Print messages to user.
-function print_messages() {
-  global $messages;
-  foreach ($messages as $message) {
-    echo htmlspecialchars($message);
-  }
-};
-
-
-function exec_sql_query($db, $sql, $params = array()) {
-  try {
-    $query = $db->prepare($sql);
-    if ($query and $query->execute($params)) {
-      return $query;
-    }
-  } catch (PDOException $exception) {
-    handle_db_error($exception);
-  }
-  return NULL;
-};
 
 if (isset($_GET["id"])){
   $id = ($_GET["id"]);
@@ -214,7 +188,6 @@ if (isset($_GET["id"])){
   $entry_tag_2 = $entry[0]["tag_2"];
   //echo $entry_tag_2;
   //get just the name of the file to display
-
 }
 
 ?>
@@ -236,7 +209,7 @@ if (isset($_GET["id"])){
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <?php include "includes/navbar.php"; ?>
-
+  <?php if ($current_user) {?>
      <div class="container">
        <div class="row">
         <h2 class="center-align"> Edit Entry "<?php echo $entry_title;?>"</h2>
@@ -253,7 +226,7 @@ if (isset($_GET["id"])){
 
             <div class="section col s12 l6">
               <h5>Tag Line</h5>
-              <input class="col s12" type="text" name="tag_line" value="<?php echo $entry_tagline;?>" data-length="120">
+              <input class="col s12" type="text" name="tag_line" value="<?php echo $entry_tagline;?>" data-length="80">
             </div>
 
             <!-- right side -->
@@ -338,10 +311,17 @@ if (isset($_GET["id"])){
             </div>
         </div>
       </div>
+      <?php } else{ ?>
+        <div class="section col s12 l12 center-align">
+          <h5>You need to login to view this page</h5>
+        </div>
+      <?php }  ?>
     </div>
 
 
-        <?php include "includes/footer.php"; ?>
+
+
+  <?php include "includes/footer.php"; ?>
 
 
         <?php include "includes/js-scripts.php"; ?>

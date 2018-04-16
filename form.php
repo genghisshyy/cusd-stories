@@ -1,4 +1,5 @@
 <?php
+include("includes/init.php");
 
 // declare constants
 const INPUT_TYPE = ["article", "video"];
@@ -10,33 +11,6 @@ $upload_submitted = false;
 // is valid inputs of form
 $is_valid = true;
 
-// execute query or fail with PDO exception
-function exec_sql_query($db, $sql, $params = array()) {
-  try {
-    var_dump($db);
-    $query = $db->prepare($sql);
-    if ($query and $query->execute($params)) {
-      return $query;
-    }
-  } catch (PDOException $exception) {
-    handle_db_error($exception);
-  }
-  return NULL;
-};
-
-// Record a message to display to the user.
-function record_message($message) {
-  global $messages;
-  array_push($messages, $message);
-};
-
-// Print messages to user.
-function print_messages() {
-  global $messages;
-  foreach ($messages as $message) {
-    echo htmlspecialchars($message);
-  }
-};
 
 if (isset($_POST["submit_button"])){
 
@@ -176,7 +150,7 @@ function print_story($story) {
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <?php include "includes/navbar.php"; ?>
-
+<?php if ($current_user) {?>
      <div class="container">
        <div class="row">
         <h2 class="center-align"> Enter a New Story</h2>
@@ -288,9 +262,14 @@ function print_story($story) {
 
       </div>
 
-    </div> <!--close container -->
-
-    <?php include "includes/footer.php"; ?>
+    </div>
+      <?php } else{ ?>
+        <div class="section col s12 l12 center-align">
+          <h5>You need to login to view this page</h5>
+        </div>
+      <?php }  ?>
+    </div><!--close container -->
+    <?php  include "includes/footer.php"; ?>
 
 
     <?php include "includes/js-scripts.php"; ?>
