@@ -15,11 +15,20 @@ function print_messages() {
     echo htmlspecialchars($message);
   }
 };
+// connection string for heroku
+$connection_string= "dbname=d9bvjse2g8ba1h host=ec2-54-243-210-70.compute-1.amazonaws.com port=5432 user=dxwirrhzaydomo password=62adc98f8f11caa8d9a71c385d70edb1483dbb761458189b20f5ba9f6ddfae6e sslmode=require";
+
+// PDO connection using heroku string
+$conn = new PDO ("pgsql:".$connection_string);
 
 
 function exec_sql_query($db, $sql, $params = array()) {
+  //var_dump($params);
+//  var_dump($sql);
+//  var_dump($db);
   try {
     $query = $db->prepare($sql);
+    //var_dump($query);
     if ($query and $query->execute($params)) {
       return $query;
     }
@@ -28,11 +37,6 @@ function exec_sql_query($db, $sql, $params = array()) {
   }
   return NULL;
 };
-// connection string for heroku
-$connection_string= "dbname=d9bvjse2g8ba1h host=ec2-54-243-210-70.compute-1.amazonaws.com port=5432 user=dxwirrhzaydomo password=62adc98f8f11caa8d9a71c385d70edb1483dbb761458189b20f5ba9f6ddfae6e sslmode=require";
-
-// PDO connection using heroku string
-$conn = new PDO ("pgsql:".$connection_string);
 
 function check_login() {
   global $conn;
@@ -109,12 +113,18 @@ function log_out() {
   if ($current_user) {
     $sql = "UPDATE accounts SET session = :session WHERE username = :username;";
     $params = array(
-      ':username' => $current_user,
+      ':username' => $current_user['username'],
       ':session' => NULL
     );
-    if (!exec_sql_query($conn, $sql, $params)) {
+    //var_dump($sql);
+    //var_dump($params);
+    $logout = exec_sql_query($conn, $sql, $params);
+    //var_dump($logout);
+    //var_dump($params);
+    if (!$logout) {
       record_message("Log out failed.");
     }
+
   }
 
   // Remove the session from the cookie and force it to expire.
