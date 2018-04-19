@@ -246,6 +246,9 @@ nav{
 a.footer-link{
   padding-left:100px;
   color: #6BAA70;
+  @media only screen and (max-width: 400px) {
+    padding-left: 0;
+  }
 }
 
 
@@ -267,7 +270,7 @@ $grey: #90949C;
 
     @media only screen and (min-width: 1200px) and (max-width: 1600px) {
       a.footer-link {
-        padding-left: 100px;
+        // padding-left: 100px;
       }
    }
 
@@ -306,6 +309,7 @@ $grey: #90949C;
     p.float-left{
           text-align: center;
           left:200px;
+
   }
 
   nav ul a {
@@ -323,6 +327,7 @@ $grey: #90949C;
     margin-left: 102px;
     @media only screen and (max-width: 1200px) {
       // margin: 20px 0;
+      margin-left: 0;
     }
   }
 
@@ -412,7 +417,11 @@ $grey: #90949C;
     overflow: hidden;
     padding-left: 200px;
     padding-right: 30px;
-  }
+    @media only screen and (max-width: 400px) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+}
 
   //padding-left prevents overlap with nav
 
