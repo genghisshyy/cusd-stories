@@ -6,7 +6,7 @@ function generateCard($row){
   if ($row['tag_2']!= "NULL"){
     echo '
     <a href ="'.$row['url'].'">
-    <div class="col s12 l4">
+    <div class="col s12 m6 l4">
           <div class="card-bg">
             <div class = "content-tag-div">
                 <div class = "col s3 about-tag">
@@ -42,7 +42,7 @@ function generateCard($row){
   else{
     echo '
     <a href ="'.$row['url'].'">
-    <div class="col s12 l4">
+    <div class="col s12 m6 l4">
           <div class="card-bg">
             <div class = "content-tag-div">
                 <div class = "col s3 about-tag">

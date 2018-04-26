@@ -22,7 +22,7 @@
       <h2> What do our members do? </h2>
       <p> A place to see what the members of CUSD do in their academic and professional lives </p>
     </div>
-    <div class="row center-align">
+    <div class="row">
        <?php include "includes/allLoad.php"; ?>
     </div>
     <?php include "includes/footer.php"; ?>

@@ -4,7 +4,7 @@ include "card-model.php";
 require "connection.php";
 
 // all database query
-$query = "SELECT * FROM michael";
+$query = "SELECT * FROM posts2";
 $table = $conn->query($query);
 
 // print the entire database to the screen

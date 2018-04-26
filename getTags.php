@@ -11,7 +11,7 @@ $tag = $_REQUEST["tag"];
 
 // display all on default of articles or video page
 if ($tag =="ALL"){
-  $query = "SELECT * FROM michael WHERE input_type = :input_type";
+  $query = "SELECT * FROM posts2 WHERE input_type = :input_type";
   $params = array(
     ":input_type" => $input_type,
   );
@@ -20,7 +20,7 @@ if ($tag =="ALL"){
 // display specific category
 else{
   // search based on the specific input and the 1 tag, check both tag_1 and tag_2
-  $query = "SELECT * FROM michael WHERE input_type = :input_type AND ( tag_1 = :input_tag_1 OR tag_2 = :input_tag_2 ) ";
+  $query = "SELECT * FROM posts2 WHERE input_type = :input_type AND ( tag_1 = :input_tag_1 OR tag_2 = :input_tag_2 ) ";
   $params = array(
     ":input_type" => $input_type,
     ":input_tag_1" => $tag,
