@@ -48,6 +48,8 @@ $large-and-up: 993px;
   font-weight: bold;
 }
 .card-bg {
+
+
    background-color: white;
    margin: auto;
    text-align: left;
@@ -180,7 +182,9 @@ nav{
 .card-body{
   position: relative;
   height: $card-body-height;
-  padding: 1.2rem;
+  padding: 1rem;
+  margin:.5rem;
+
 }
 
 .card-title{
