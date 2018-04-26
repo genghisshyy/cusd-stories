@@ -19,7 +19,7 @@
     <![endif]-->
     <?php include "includes/navbar.php"; ?>
     <?php include "includes/sidenav.php"; ?>
-    <div class="row center-align main"> </div>
+    <div class="row center-align main large-correction"> </div>
     <?php include "includes/footer.php"; ?>
     <?php include "includes/js-scripts.php"; ?>
     <script> type_controller('<?php echo $current_page?>', 'ALL') </script>

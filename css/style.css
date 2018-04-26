@@ -15,6 +15,10 @@ body {
   width: 8rem;
   margin-left: 15px; }
 
+@media screen and (min-width: 993px) {
+  .large-correction {
+    width: 1200px; } }
+
 #type_header .heading {
   font-size: 1.5rem;
   font-weight: bold; }

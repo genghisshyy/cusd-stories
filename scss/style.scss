@@ -36,6 +36,12 @@ $large-and-up: 993px;
   margin-left: 15px;
 }
 
+.large-correction{
+  @media screen and (min-width: $large-and-up) {
+    width: 1200px;
+  }
+
+}
 
 #type_header .heading{
   font-size: 1.5rem;
