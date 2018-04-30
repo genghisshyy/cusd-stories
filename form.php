@@ -125,7 +125,7 @@ function print_story($story) {
       <?php echo htmlspecialchars($story["tag_line"]);?>
     </td>
     <td><?php echo htmlspecialchars($story["url"]);?></td>
-    <td><?php echo "<img src =\"". ($story["file_path"]). "\">";?></td>
+    <td><?php echo "<img id='form_photo' src =\"". ($story["file_path"]). "\">";?></td>
     <td><?php echo htmlspecialchars($story["tag_1"]);?></td>
     <td><?php echo htmlspecialchars($story["tag_2"]);?></td>
     <td><?php echo "<a href=\"". "/edit.php?id=". $story["id"] . "\"> <button class='btn' type='submit' action='edit.php'> Edit </button></a>";?></td>

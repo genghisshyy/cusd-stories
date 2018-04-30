@@ -162,6 +162,9 @@ nav {
 #entry_photo {
   width: 380px; }
 
+#form_photo {
+  width: 95%; }
+
 #articles, #videos {
   font-family: 'Gotham-book', 'Roboto', sans-serif; }
   #articles p, #videos p {
